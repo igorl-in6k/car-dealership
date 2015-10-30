@@ -4,22 +4,21 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "car")
-@SecondaryTable(name = "sold_car")
 public class Car {
 
     @Id
     @GeneratedValue
     private int id;
 
-    @Column(name = "price")
     private int price;
 
     @ManyToOne
     @JoinColumn
     private Brand brand;
 
-    @Column(name = "model")
     private String model;
+
+    private String saleDate;
 
     public Car() {}
 
@@ -27,6 +26,7 @@ public class Car {
         this.price = price;
         this.brand = brand;
         this.model = model;
+        saleDate = "";
     }
 
     public int getId() {
@@ -45,6 +45,10 @@ public class Car {
         return model;
     }
 
+    public String getSaleDate() {
+        return saleDate;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -61,8 +65,12 @@ public class Car {
         this.model = model;
     }
 
+    public void setSaleDate(String date) {
+        this.saleDate = date;
+    }
+
     @Override
     public String toString() {
-        return "Car " + id + ": " + brand.getName() + " " + model + "($" + price + ")";
+        return "(" + id + ") " + brand.getName() + " " + model + "($" + price + ")";
     }
 }

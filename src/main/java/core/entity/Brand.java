@@ -13,7 +13,9 @@ public class Brand {
     @Column(name = "name")
     private String name;
 
-    public Brand() {}
+    public Brand() {
+        name = "no brand defined";
+    }
 
     public Brand(String name) {
         this.name = name;
@@ -37,8 +39,6 @@ public class Brand {
 
     @Override
     public boolean equals(Object obj) {
-        if ( this == obj ) return true;
-        if ( !(obj instanceof Brand) ) return false;
-        return name.equals(((Brand) obj ).name);
+        return this == obj || obj instanceof Brand && name.equals(((Brand) obj).name);
     }
 }

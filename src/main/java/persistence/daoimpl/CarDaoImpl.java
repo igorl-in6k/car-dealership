@@ -1,8 +1,10 @@
 package persistence.daoimpl;
 
 import core.dao.CarDao;
+import core.entity.Brand;
 import core.entity.Car;
 import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
 
@@ -23,5 +25,22 @@ public class CarDaoImpl extends BaseDaoImpl<Car> implements CarDao {
     private Criteria createCriteria() {
         return getSession()
                 .createCriteria(Car.class);
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<Car> getAvailableCars() {
+        return getSession()
+                .createCriteria(Car.class)
+                .add(Restrictions.eq("saleDate", "")).list();
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<Car> getCarsByBrand(Brand brand) {
+        return getSession()
+                .createCriteria(Car.class)
+                .add(Restrictions.eq("brand", brand.getId()))
+                .list();
     }
 }

@@ -26,9 +26,10 @@ public class DealDaoImpl extends BaseDaoImpl<Deal> implements DealDao {
     @Override
     @SuppressWarnings("unchecked")
     public List<Deal> getDealsByManager(Manager manager) {
-        return sessionFactory.getCurrentSession()
+        return getSession()
                 .createCriteria(Deal.class)
-                .add(Restrictions.eq("managerName", manager.getName()))
+                .add(Restrictions.eq("manager", manager))
                 .list();
     }
+
 }

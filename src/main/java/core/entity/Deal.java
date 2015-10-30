@@ -48,4 +48,9 @@ public class Deal {
     public Car getCar() {
         return car;
     }
+
+    @Override
+    public String toString() {
+        return "Deal " + id + ": " + car + "; " + manager + ";";
+    }
 }

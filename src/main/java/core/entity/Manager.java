@@ -49,6 +49,6 @@ public class Manager {
 
     @Override
     public String toString() {
-        return "[Sale Manager " + id + ": " + name + "; " + age + " y.o.]";
+        return "(" + id + ") " + name + "; " + age + " y.o.";
     }
 }

@@ -46,13 +46,19 @@
     <bean id="managerDao" class="persistence.daoimpl.ManagerDaoImpl"/>
     <bean id="dealDao" class="persistence.daoimpl.DealDaoImpl"/>
     <bean id="brandDao" class="persistence.daoimpl.BrandDaoImpl"/>
-    <!--<bean id="service" class="core.service.AutomobileDealershipServiceImpl">-->
-        <!--<constructor-arg ref="carDao" />-->
-        <!--<constructor-arg ref="managerDao" />-->
-        <!--<constructor-arg ref="dealDao" />-->
-    <!--</bean>-->
-    <!--<bean id="consoleIO" class="console.ConsoleIO">-->
-        <!--<constructor-arg ref="service" />-->
-    <!--</bean>-->
 
+    <bean id="carService" class="persistence.serviceimpl.CarManagementServiceImpl">
+        <constructor-arg ref="carDao" />
+        <constructor-arg ref="dealDao" />
+    </bean>
+    <bean id="managerService" class="persistence.serviceimpl.StaffManagerServiceImpl">
+        <constructor-arg ref="managerDao" />
+        <constructor-arg ref="dealDao" />
+    </bean>
+    <bean id="utilService" class="persistence.serviceimpl.UtilServiceImpl">
+        <constructor-arg ref="carDao" />
+        <constructor-arg ref="managerDao" />
+        <constructor-arg ref="dealDao" />
+        <constructor-arg ref="brandDao" />
+    </bean>
 </beans>
