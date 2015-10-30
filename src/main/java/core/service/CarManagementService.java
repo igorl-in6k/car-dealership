@@ -1,7 +1,7 @@
 package core.service;
 
-import core.entity.Brand;
 import core.entity.Car;
+import core.entity.Manager;
 
 import java.util.List;
 
@@ -9,13 +9,10 @@ public interface CarManagementService {
 
     void addCar(Car newCar);
 
-    void sellCar(int carId, int managerId);
+    void sellCar(Car car, Manager manager);
 
     List<Car> getCars();
 
     Car getCarById(int id);
-
-    List<Car> getCarsByBrand(Brand brand);
-
 
 }

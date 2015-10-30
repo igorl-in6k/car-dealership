@@ -3,7 +3,7 @@ package core.service;
 import core.entity.Brand;
 import core.entity.Manager;
 
-public interface ReportService {
+public interface UtilService {
 
     Brand getManagerPreferredBrandByDealsAmount(Manager manager);
 

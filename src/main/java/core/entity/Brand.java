@@ -34,4 +34,11 @@ public class Brand {
     public String getName() {
         return name;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if ( this == obj ) return true;
+        if ( !(obj instanceof Brand) ) return false;
+        return name.equals(((Brand) obj ).name);
+    }
 }
