@@ -2,8 +2,8 @@ package core.entity;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "manager")
+//@Entity
+//@Table(name = "manager")
 public class Manager {
 
     @Id

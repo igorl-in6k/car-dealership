@@ -14,7 +14,7 @@ public class Car {
     private int price;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "brand_id")
     private Brand brand;
 
     @Column(name = "model")
