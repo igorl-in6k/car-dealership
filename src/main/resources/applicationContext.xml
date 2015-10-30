@@ -43,18 +43,16 @@
     <tx:annotation-driven proxy-target-class="true" transaction-manager="transactionManager"/>
 
     <bean id="carDao" class="persistence.daoimpl.CarDaoImpl"/>
-    <!--<bean id="managerDao" class="persistence.daoimpl.ManagerDaoImpl"/>-->
-    <!--<bean id="dealDao" class="persistence.daoimpl.DealDaoImpl"/>-->
-    <!--<bean id="service" class="core.service.AutomobileDealershipServiceImpl">
-        <constructor-arg ref="carDao" />
-        <constructor-arg ref="managerDao" />
-        <constructor-arg ref="dealDao" />
-    </bean>-->
-    <!--
-    <bean id="consoleIO" class="console.ConsoleIO">
-        <constructor-arg ref="service" />
-    </bean>
-    -->
-
+    <bean id="managerDao" class="persistence.daoimpl.ManagerDaoImpl"/>
+    <bean id="dealDao" class="persistence.daoimpl.DealDaoImpl"/>
+    <bean id="brandDao" class="persistence.daoimpl.BrandDaoImpl"/>
+    <!--<bean id="service" class="core.service.AutomobileDealershipServiceImpl">-->
+        <!--<constructor-arg ref="carDao" />-->
+        <!--<constructor-arg ref="managerDao" />-->
+        <!--<constructor-arg ref="dealDao" />-->
+    <!--</bean>-->
+    <!--<bean id="consoleIO" class="console.ConsoleIO">-->
+        <!--<constructor-arg ref="service" />-->
+    <!--</bean>-->
 
 </beans>

@@ -2,8 +2,8 @@ package core.entity;
 
 import javax.persistence.*;
 
-//@Entity
-//@Table(name = "manager")
+@Entity
+@Table(name = "manager")
 public class Manager {
 
     @Id
@@ -13,8 +13,6 @@ public class Manager {
     @Column(name = "name")
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "id")
     @Column(name = "age")
     private int age;
 

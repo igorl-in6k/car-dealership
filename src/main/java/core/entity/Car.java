@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "car")
+@SecondaryTable(name = "sold_car")
 public class Car {
 
     @Id
@@ -14,7 +15,7 @@ public class Car {
     private int price;
 
     @ManyToOne
-    @JoinColumn(name = "brand_id")
+    @JoinColumn
     private Brand brand;
 
     @Column(name = "model")
@@ -62,6 +63,6 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car " + id + ": " + brand + " " + model + "($" + price + ")";
+        return "Car " + id + ": " + brand.getName() + " " + model + "($" + price + ")";
     }
 }
