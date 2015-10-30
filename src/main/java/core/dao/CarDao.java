@@ -1,4 +1,12 @@
 package core.dao;
 
-public interface CarDao {
+import core.entity.Brand;
+import core.entity.Car;
+
+import java.util.List;
+
+public interface CarDao extends BaseDao<Car> {
+
+    List<Car> getCarsByBrand(Brand brand);
+
 }

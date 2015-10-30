@@ -1,4 +1,6 @@
 package core.dao;
 
-public class ManagerDao {
+import core.entity.Manager;
+
+public interface ManagerDao extends BaseDao<Manager> {
 }

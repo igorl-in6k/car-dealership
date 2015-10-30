@@ -1,4 +1,6 @@
 package core.dao;
 
-public interface BrandDao {
+import core.entity.Brand;
+
+public interface BrandDao extends BaseDao<Brand> {
 }
