@@ -51,7 +51,7 @@
         <constructor-arg ref="carDao" />
         <constructor-arg ref="dealDao" />
     </bean>
-    <bean id="managerService" class="persistence.serviceimpl.StaffManagerServiceImpl">
+    <bean id="staffService" class="persistence.serviceimpl.StaffManagerServiceImpl">
         <constructor-arg ref="managerDao" />
         <constructor-arg ref="dealDao" />
     </bean>
@@ -60,5 +60,11 @@
         <constructor-arg ref="managerDao" />
         <constructor-arg ref="dealDao" />
         <constructor-arg ref="brandDao" />
+    </bean>
+
+    <bean id="consoleio" class="console.ConsoleIO">
+        <constructor-arg ref="carService" />
+        <constructor-arg ref="staffService" />
+        <constructor-arg ref="utilService" />
     </bean>
 </beans>

@@ -38,6 +38,11 @@ public class Brand {
     }
 
     @Override
+    public String toString() {
+        return name;
+    }
+
+    @Override
     public boolean equals(Object obj) {
         return this == obj || obj instanceof Brand && name.equals(((Brand) obj).name);
     }

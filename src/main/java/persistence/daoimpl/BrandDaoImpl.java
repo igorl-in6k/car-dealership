@@ -32,7 +32,7 @@ public class BrandDaoImpl extends BaseDaoImpl<Brand> implements BrandDao {
     public Brand getByName(String name) {
         List<Brand> brands = getSession().createCriteria(Brand.class).list();
         for (Brand brand : brands) {
-            if ( brand.getName().equals(name) )
+            if ( brand.getName().toLowerCase().equals(name.toLowerCase().trim()) )
                 return brand;
         }
         return null;

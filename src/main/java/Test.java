@@ -12,6 +12,5 @@ public class Test {
         StaffManagementService staff = context.getBean(StaffManagementService.class);
         UtilService util = context.getBean(UtilService.class);
 
-        System.out.println(staff.getDealsByManager(staff.getManagerById(3)));
     }
 }
