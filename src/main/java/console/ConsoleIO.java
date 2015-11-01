@@ -56,11 +56,6 @@ public class ConsoleIO {
             case ADD_MANAGER:
                 addManager();
                 break;
-            /*
-            case REMOVE_MANAGER:
-                removeManager();
-                break;
-            */
             case SELL_CAR:
                 sellCar();
                 break;
@@ -160,28 +155,6 @@ public class ConsoleIO {
         printLastLine();
     }
 
-    /*
-    public void removeManager() {
-        printTitle("REMOVE MANAGER");
-        System.out.print(INPUT_PARAMETERS_COLOR);
-        System.out.print("\tManager ID: ");
-        int id = sc.nextInt();
-        Manager dismissedManager = staffService.getManagerById(id);
-        if ( dismissedManager == null ) {
-            System.out.print(EXCEPTION_MESSAGE_COLOR);
-            System.out.println("No manager found with specified ID: " + id +
-                               "\nAborted" + DEFAULT_COLOR);
-            printLastLine();
-            return;
-        } else {
-            staffService.dismissManager(dismissedManager);
-            System.out.print(MESSAGE_COLOR);
-            System.out.println("Removed " + dismissedManager);
-        }
-        printLastLine();
-    }
-   */
-
     public void sellCar() {
         printTitle("SELL CAR");
         System.out.print(INPUT_PARAMETERS_COLOR + "\tSale manager ID: ");
@@ -236,14 +209,6 @@ public class ConsoleIO {
         printTitle("DEALS");
         int idx = 1;
         System.out.print(LIST_ITEMS_COLOR);
-        /*
-        for (Deal deal : service.getDeals()) {
-            System.out.printf("\t%s%d. Deal %d: %s%s %s. %sSale Manager: %s%s\n",
-                              LIST_ITEMS_COLOR, idx++, deal.getId(), CAR_NAME_COLOR,
-                              deal.getCar().getBrand().getName(), deal.getCar().getModel(),
-                              LIST_ITEMS_COLOR, MANAGER_NAME_COLOR, deal.getManager().getName());
-        }
-        */
         for (Manager manager : staffService.getManagers()) {
             for (Deal deal : staffService.getDealsByManager(manager)) {
                 System.out.printf("\t%s%d. Deal %d: %s%s %s. %sSale Manager: %s%s\n",

@@ -8,7 +8,6 @@ public enum Command {
     DEALS("deals", "prints all deals of all managers"),
     ADD_CAR("addcar", "adds car with specified price, brand and model"),
     ADD_MANAGER("addmanager", "adds manager specified name"),
-    REMOVE_MANAGER("removemanager", "removes manager"),
     SELL_CAR("sellcar", "manager with MANAGER_ID sells car with CAR_ID"),
     MANAGER("manager", "prints information about manager with specified MANAGER_ID"),
     EXIT("exit", "closes program"),
