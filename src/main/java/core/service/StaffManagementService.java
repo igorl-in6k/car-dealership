@@ -14,4 +14,6 @@ public interface StaffManagementService {
     Manager getManagerById(int id);
 
     List<Deal> getDealsByManager(Manager manager);
+
+    List<Deal> getAllDeals();
 }

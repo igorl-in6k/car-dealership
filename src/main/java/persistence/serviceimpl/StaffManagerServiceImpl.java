@@ -37,4 +37,9 @@ public class StaffManagerServiceImpl implements StaffManagementService {
     public List<Deal> getDealsByManager(Manager manager) {
         return dealDao.getDealsByManager(manager);
     }
+
+    @Override
+    public List<Deal> getAllDeals() {
+        return dealDao.getAll();
+    }
 }

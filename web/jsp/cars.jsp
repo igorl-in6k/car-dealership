@@ -55,6 +55,7 @@
         <%}%>
     </table>
     <br> <a href="/addcar" class="btn" style="font-size: 30px;"> Add car </a> <br>
+    <br> <a href="/addbrand" class="btn" style="font-size: 30px;"> Add brand </a> <br>
 </div>
 </body>
 </html>

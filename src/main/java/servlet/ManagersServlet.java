@@ -1,6 +1,7 @@
 package servlet;
 
 import core.service.CarManagementService;
+import core.service.StaffManagementService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -11,26 +12,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/cars")
-public class ShowCarsServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/managers")
+public class ManagersServlet extends HttpServlet {
 
-    CarManagementService service;
+    StaffManagementService service;
 
     @Override
     public void init() {
         ApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml");
-        service = (CarManagementService) context.getBean("carService");
+        service = context.getBean(StaffManagementService.class);
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("cars", service.getCars());
-        req.getRequestDispatcher("jsp/cars.jsp").forward(req,resp);
+        req.setAttribute("managers", service.getManagers());
+        req.getRequestDispatcher("jsp/managers.jsp").forward(req,resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-
     }
 }
