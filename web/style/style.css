@@ -11,6 +11,23 @@ h1 {
     text-decoration: none;
 }
 
+table {
+    border: 3px solid dimgray;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+td {
+    text-align: center;
+    border: 3px solid dimgray;
+    border-collapse: collapse;
+    font-size: 25px;
+}
+
+#table-titles {
+    color: white;
+}
+
 .btn {
     border-radius: 4px;
     font-family: Georgia, serif;
@@ -20,9 +37,14 @@ h1 {
     text-decoration: none;
 }
 
+.btn:hover {
+    color: white;
+}
+
 #options {
+    background-color: #343434;
     position: absolute;
-    width: 250px;
+    width: 20%;
     height: 100%;
     border-right: 2px solid dimgray;
 }
@@ -30,6 +52,15 @@ h1 {
 #content {
     position: absolute;
     height: 100%;
-    width: 930px;
+    width: 80%;
     left: 300px;
+}
+
+#sell-car {
+    text-decoration: none;
+    color: white;
+}
+
+#sell-car:hover {
+    color: chartreuse;
 }

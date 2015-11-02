@@ -10,6 +10,7 @@ import core.entity.Manager;
 import core.service.UtilService;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class UtilServiceImpl implements UtilService {
@@ -34,6 +35,16 @@ public class UtilServiceImpl implements UtilService {
     @Override
     public Brand getBrandByName(String name) {
         return brandDao.getByName(name);
+    }
+
+    @Override
+    public Brand getBrandById(int id) {
+        return brandDao.getById(id);
+    }
+
+    @Override
+    public List<Brand> getAllBrands() {
+        return brandDao.getAll();
     }
 
     @Override

@@ -69,6 +69,14 @@ public class Car {
         this.saleDate = date;
     }
 
+    public String getName() {
+        return brand.getName() + " " + model;
+    }
+
+    public boolean sold() {
+        return !saleDate.equals("");
+    }
+
     @Override
     public String toString() {
         return "(" + id + ") " + brand.getName() + " " + model + "($" + price + ")";

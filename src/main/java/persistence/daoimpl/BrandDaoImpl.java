@@ -13,7 +13,8 @@ public class BrandDaoImpl extends BaseDaoImpl<Brand> implements BrandDao {
     @Override
     @SuppressWarnings("unchecked")
     public List<Brand> getAll() {
-        return createCriteria()
+        return sessionFactory.getCurrentSession()
+                .createCriteria(Brand.class)
                 .list();
     }
 
