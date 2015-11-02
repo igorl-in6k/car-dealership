@@ -1,4 +1,8 @@
 package servlet;
 
-public class RequestParser {
+import core.entity.Manager;
+
+public class RequestParser extends BaseServlet {
+
+
 }

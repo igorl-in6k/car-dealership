@@ -16,8 +16,8 @@ public abstract class BaseServlet extends HttpServlet {
     protected BrandService brandService;
     protected ReportService reportService;
 
-
-    public BaseServlet() {
+    @Override
+    public void init() {
         WebApplicationContext context = WebApplicationContextUtils
                 .getRequiredWebApplicationContext(getServletContext());
         carService = context.getBean(CarManagementService.class);

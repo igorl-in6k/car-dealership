@@ -22,11 +22,6 @@ public class CarDaoImpl extends BaseDaoImpl<Car> implements CarDao {
         return getSession().get(Car.class, id);
     }
 
-    private Criteria createCriteria() {
-        return getSession()
-                .createCriteria(Car.class);
-    }
-
     @Override
     @SuppressWarnings("unchecked")
     public List<Car> getAvailableCars() {
@@ -42,5 +37,10 @@ public class CarDaoImpl extends BaseDaoImpl<Car> implements CarDao {
                 .createCriteria(Car.class)
                 .add(Restrictions.eq("brand", brand.getId()))
                 .list();
+    }
+
+    private Criteria createCriteria() {
+        return getSession()
+                .createCriteria(Car.class);
     }
 }

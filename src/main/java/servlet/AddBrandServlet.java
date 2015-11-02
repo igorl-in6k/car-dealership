@@ -14,17 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(urlPatterns = "/addbrand")
-public class AddBrandServlet extends HttpServlet {
-
-    ReportService utilService;
-    BrandService brandService;
-
-    @Override
-    public void init() {
-        ApplicationContext context = new ClassPathXmlApplicationContext(
-                "applicationContext.xml");
-        utilService = context.getBean(ReportService.class);
-    }
+public class AddBrandServlet extends BaseServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
