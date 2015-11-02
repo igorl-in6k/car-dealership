@@ -1,11 +1,8 @@
 package servlet;
 
 import core.entity.Brand;
-import core.entity.Car;
-import core.entity.Manager;
-import core.service.CarManagementService;
-import core.service.StaffManagementService;
-import core.service.UtilService;
+import core.service.BrandService;
+import core.service.ReportService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -19,17 +16,19 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/addbrand")
 public class AddBrandServlet extends HttpServlet {
 
-    UtilService utilService;
+    ReportService utilService;
+    BrandService brandService;
 
     @Override
     public void init() {
         ApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml");
-        utilService = context.getBean(UtilService.class);
+        utilService = context.getBean(ReportService.class);
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
         req.getRequestDispatcher("/jsp/addbrand.jsp").forward(req,resp);
     }
 
@@ -37,7 +36,7 @@ public class AddBrandServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String brandName = req.getParameter("name");
         Brand brand = new Brand(brandName);
-        utilService.addBrand(brand);
+        brandService.addBrand(brand);
         req.setAttribute("brand", brand);
         req.getRequestDispatcher("jsp/addedbrand.jsp").forward(req, resp);
     }

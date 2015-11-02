@@ -1,50 +1,20 @@
-package persistence.serviceimpl;
+package core.service.impl;
 
-import core.dao.BrandDao;
-import core.dao.CarDao;
 import core.dao.DealDao;
-import core.dao.ManagerDao;
 import core.entity.Brand;
 import core.entity.Deal;
 import core.entity.Manager;
-import core.service.UtilService;
+import core.service.ReportService;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-public class UtilServiceImpl implements UtilService {
+public class ReportServiceImpl implements ReportService {
 
-    private CarDao carDao;
-    private ManagerDao managerDao;
     private DealDao dealDao;
-    private BrandDao brandDao;
 
-    public UtilServiceImpl(CarDao carDao, ManagerDao managerDao, DealDao dealDao, BrandDao brandDao) {
-        this.carDao = carDao;
-        this.managerDao = managerDao;
+    public ReportServiceImpl(DealDao dealDao) {
         this.dealDao = dealDao;
-        this.brandDao = brandDao;
-    }
-
-    @Override
-    public void addBrand(Brand brand) {
-        brandDao.add(brand);
-    }
-
-    @Override
-    public Brand getBrandByName(String name) {
-        return brandDao.getByName(name);
-    }
-
-    @Override
-    public Brand getBrandById(int id) {
-        return brandDao.getById(id);
-    }
-
-    @Override
-    public List<Brand> getAllBrands() {
-        return brandDao.getAll();
     }
 
     @Override

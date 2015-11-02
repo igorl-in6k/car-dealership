@@ -5,15 +5,7 @@ import core.entity.Manager;
 
 import java.util.List;
 
-public interface UtilService {
-
-    void addBrand(Brand brand);
-
-    Brand getBrandByName(String name);
-
-    Brand getBrandById(int id);
-
-    List<Brand> getAllBrands();
+public interface ReportService {
 
     Brand getManagerPreferredBrandByDealsAmount(Manager manager);
 

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(urlPatterns = "/cars")
-public class CarsServlet extends HttpServlet {
+public class CarsServlet extends HttpServlet { // todo basic servlet
 
     CarManagementService service;
 
@@ -24,13 +24,13 @@ public class CarsServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
         req.setAttribute("cars", service.getCars());
         req.getRequestDispatcher("jsp/cars.jsp").forward(req,resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-
     }
 }

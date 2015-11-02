@@ -2,10 +2,9 @@ package servlet;
 
 import core.entity.Brand;
 import core.entity.Car;
-import core.entity.Manager;
 import core.service.CarManagementService;
 import core.service.StaffManagementService;
-import core.service.UtilService;
+import core.service.ReportService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -21,7 +20,7 @@ public class AddCarServlet extends HttpServlet {
 
     CarManagementService carService;
     StaffManagementService staffService;
-    UtilService utilService;
+    ReportService utilService;
 
     @Override
     public void init() {
@@ -29,13 +28,12 @@ public class AddCarServlet extends HttpServlet {
                 "applicationContext.xml");
         carService = context.getBean(CarManagementService.class);
         staffService = context.getBean(StaffManagementService.class);
-        utilService = context.getBean(UtilService.class);
+        utilService = context.getBean(ReportService.class);
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("brands", utilService.getAllBrands());
-
         req.getRequestDispatcher("/jsp/addcar.jsp").forward(req,resp);
     }
 

@@ -33,6 +33,9 @@ public class SellCarServlet extends HttpServlet {
         if ( req.getParameter("car_id") == null ) {
             req.setAttribute("cars", carService.getAvailableCars());
         }
+        else {
+            req.setAttribute("car", carService.getCarById(Integer.parseInt(req.getParameter("car_id"))));
+        }
         if ( req.getParameter("manager_id") == null ) {
             req.setAttribute("managers", staffService.getManagers());
         }
@@ -51,7 +54,7 @@ public class SellCarServlet extends HttpServlet {
             req.getRequestDispatcher("jsp/soldcar.jsp").forward(req,resp);
         }
         else {
-            req.getRequestDispatcher("jsp/alreadysold").forward(req,resp);
+            req.getRequestDispatcher("jsp/alreadysold.jsp").forward(req,resp);
         }
 
     }

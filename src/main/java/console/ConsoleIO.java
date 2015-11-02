@@ -1,13 +1,13 @@
 package console;
 
-
 import core.entity.Brand;
 import core.entity.Car;
 import core.entity.Deal;
 import core.entity.Manager;
+import core.service.BrandService;
 import core.service.CarManagementService;
 import core.service.StaffManagementService;
-import core.service.UtilService;
+import core.service.ReportService;
 
 import java.util.Scanner;
 
@@ -18,16 +18,19 @@ public class ConsoleIO {
 
     private CarManagementService carService;
     private StaffManagementService staffService;
-    private UtilService utilService;
+    private ReportService reportService;
+    private BrandService brandService;
     private Scanner                     sc;
     private boolean exit = false;
 
     public ConsoleIO(CarManagementService carService,
                      StaffManagementService staffService,
-                     UtilService utilService) {
+                     BrandService brandService,
+                     ReportService utilService) {
         this.carService = carService;
         this.staffService = staffService;
-        this.utilService = utilService;
+        this.reportService = utilService;
+        this.brandService = brandService;
         this.sc = new Scanner(System.in);
     }
 
@@ -120,7 +123,7 @@ public class ConsoleIO {
         System.out.print(INPUT_PARAMETERS_COLOR);
         System.out.print("\tBrand: ");
         String brandInput = sc.nextLine();
-        Brand brand = utilService.getBrandByName(brandInput);
+        Brand brand = brandService.getBrandByName(brandInput);
         if ( brand == null ) {
             System.out.print(EXCEPTION_MESSAGE_COLOR);
             System.out.println("Unknown brand: " + brandInput +
@@ -198,8 +201,8 @@ public class ConsoleIO {
         for (Deal deal : staffService.getDealsByManager(manager)) {
             System.out.println(LIST_ITEMS_COLOR + "\t" + idx++ + ". " + deal);
         }
-        Brand bySells = utilService.getManagerPreferredBrandByDealsAmount(manager);
-        Brand byPrice = utilService.getManagerPreferredBrandByPriceAmount(manager);
+        Brand bySells = reportService.getManagerPreferredBrandByDealsAmount(manager);
+        Brand byPrice = reportService.getManagerPreferredBrandByPriceAmount(manager);
         System.out.println(ADVANCED_INFORMATION_COLOR + "Preferred brand by sells amount: " + bySells);
         System.out.println(ADVANCED_INFORMATION_COLOR + "Preferred brand by price amount: " + byPrice);
         printLastLine();

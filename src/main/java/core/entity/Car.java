@@ -18,7 +18,7 @@ public class Car {
 
     private String model;
 
-    private String saleDate;
+    private String saleDate; //todo  local date time
 
     public Car() {}
 

@@ -1,4 +1,4 @@
-package persistence.serviceimpl;
+package core.service.impl;
 
 import core.dao.CarDao;
 import core.dao.DealDao;

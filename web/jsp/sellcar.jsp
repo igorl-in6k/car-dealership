@@ -15,8 +15,9 @@
 </div>
 
 <div id="content">
-    <%String brand = (String) request.getAttribute("brand");%>
-    <%String model = (String) request.getAttribute("model");%>
+    <%Car sellingCar = (Car) request.getAttribute("car"); %>
+    <%String brand = sellingCar.getBrand().getName();%>
+    <%String model = sellingCar.getModel();%>
     <h1 align="center"> Selling car: <%=brand + " " + model%>
     </h1>
 

@@ -2,7 +2,7 @@ package servlet;
 
 import core.entity.Manager;
 import core.service.StaffManagementService;
-import core.service.UtilService;
+import core.service.ReportService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -17,14 +17,14 @@ import java.io.IOException;
 public class ManagerServlet extends HttpServlet {
 
     StaffManagementService service;
-    UtilService utilService;
+    ReportService utilService;
 
     @Override
     public void init() {
         ApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml");
         service = context.getBean(StaffManagementService.class);
-        utilService = context.getBean(UtilService.class);
+        utilService = context.getBean(ReportService.class);
     }
 
     @Override

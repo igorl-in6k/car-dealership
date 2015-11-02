@@ -1,5 +1,5 @@
 body {
-    background-color:#1a1a1a;
+    background-color:#242424;
     color: #c7c7c7;
     font-family: Georgia, serif;
     text-decoration: none;
@@ -26,6 +26,13 @@ td {
     font-size: 25px;
 }
 
+select {
+    background-color: #242424;
+    color: aliceblue;
+    font-size: 25px;
+    border: 0;
+}
+
 #table-titles {
     color: white;
 }
@@ -44,6 +51,7 @@ td {
 }
 
 #options {
+    background-color: #3c3f41;
     position: absolute;
     width: 20%;
     height: 100%;
