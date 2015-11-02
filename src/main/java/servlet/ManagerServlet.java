@@ -1,6 +1,8 @@
 package servlet;
 
+import core.entity.Manager;
 import core.service.StaffManagementService;
+import core.service.UtilService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -11,21 +13,29 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/managers")
+@WebServlet(urlPatterns = "/managerinfo")
 public class ManagerServlet extends HttpServlet {
 
     StaffManagementService service;
+    UtilService utilService;
 
     @Override
     public void init() {
         ApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml");
         service = context.getBean(StaffManagementService.class);
+        utilService = context.getBean(UtilService.class);
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        int id = Integer.parseInt(req.getParameter("id"));
+        Manager manager = service.getManagerById(id);
+        req.setAttribute("deals", service.getDealsByManager(manager));
+        req.setAttribute("manager", manager);
+        req.setAttribute("preferredBrandByPrice", utilService.getManagerPreferredBrandByPriceAmount(manager));
+        req.setAttribute("preferredBrandByDeals", utilService.getManagerPreferredBrandByDealsAmount(manager));
+        req.getRequestDispatcher("/jsp/managerinfo.jsp").forward(req,resp);
     }
 
     @Override

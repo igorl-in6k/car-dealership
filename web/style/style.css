@@ -3,12 +3,14 @@ body {
     color: #c7c7c7;
     font-family: Georgia, serif;
     text-decoration: none;
+    font-size: 25px;
 }
 
 h1 {
     color: #c7c7c7;
     font-family: Georgia, serif;
     text-decoration: none;
+    font-size: 40px;
 }
 
 table {
@@ -55,11 +57,12 @@ td {
     left: 300px;
 }
 
-#sell-car {
+#common-link {
     text-decoration: none;
     color: white;
+    font-size: 25px;
 }
 
-#sell-car:hover {
+#common-link:hover {
     color: chartreuse;
 }

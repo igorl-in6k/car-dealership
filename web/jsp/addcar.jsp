@@ -20,6 +20,7 @@
             <option value="<%=brand.getId()%>"><%=brand.getName()%></option>
             <%}%>
         </select>
+        <a href="/addbrand" id="common-link" style="font-size: 20px;"> new brand</a>
         <br> <br>
         <label for="model"> Model: </label>
         <input type="text" name="model" id="model">

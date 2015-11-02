@@ -1,6 +1,5 @@
 package servlet;
 
-import core.service.CarManagementService;
 import core.service.StaffManagementService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

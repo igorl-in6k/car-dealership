@@ -14,6 +14,7 @@
     <a href="/deals" class="btn"> Deals </a> <br>
 </div>
 <div id="content">
+    <h1> All Cars </h1>
     <table>
         <tr id="table-titles">
             <td> #</td>
@@ -44,7 +45,7 @@
             </td>
             <%if (car.getSaleDate().equals("")) {%>
             <td>
-                <a href="sellcar?car_id=<%=car.getId()%>" id="sell-car"> sell </a>
+                <a href="sellcar?car_id=<%=car.getId()%>" id="common-link"> sell </a>
             </td>
             <%} else {%>
             <td>
@@ -54,8 +55,8 @@
         </tr>
         <%}%>
     </table>
-    <br> <a href="/addcar" class="btn" style="font-size: 30px;"> Add car </a> <br>
-    <br> <a href="/addbrand" class="btn" style="font-size: 30px;"> Add brand </a> <br>
+    <br> <a href="/addcar" id="common-link"> Add car </a> <br>
+    <br> <a href="/addbrand" id="common-link"> Add brand </a> <br>
 </div>
 </body>
 </html>

@@ -1,11 +1,10 @@
-<%@ page import="core.entity.Car" %>
 <%@ page import="java.util.List" %>
 <%@ page import="core.entity.Manager" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Cars Main</title>
+    <title>Managers</title>
     <link rel="stylesheet" type="text/css" href="/style/style.css">
 </head>
 <body>
@@ -32,7 +31,7 @@
                 <%=manager.getId()%>
             </td>
             <td>
-                <%=manager.getName()%>
+                <a id="common-link" href="/managerinfo?id=<%=manager.getId()%>"> <%=manager.getName()%> </a>
             </td>
             <td>
                 <%=manager.getAge()%>
@@ -40,7 +39,7 @@
         </tr>
         <%}%>
     </table>
-    <br> <a href="/addmanager" class="btn" style="font-size: 30px;"> Add manager </a> <br>
+    <br> <a href="/addmanager" id="common-link"> Add manager </a> <br>
 </div>
 </body>
 </html>

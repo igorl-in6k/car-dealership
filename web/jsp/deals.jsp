@@ -32,7 +32,9 @@
                 <%=deal.getId()%>
             </td>
             <td>
-                <%=deal.getManager().getName() + " (" + deal.getManager().getAge() + " y.o.)"%>
+                <a href="/managerinfo?id=<%=deal.getManager().getId()%>" id="common-link" style="font-size: 25px;">
+                    <%=deal.getManager().getName() + " (" + deal.getManager().getAge() + " y.o.)"%>
+                </a>
             </td>
             <td>
                 <%=deal.getCar().getName()%>

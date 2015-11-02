@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+ http://www.springframework.org/schema/tx
+ http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <context:annotation-config/>
+
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/cardealership"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </bean>
+
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan" value="core.entity"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="show_sql">true</prop>
+                <prop key="dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hbm2ddl.auto">create</prop>
+                <prop key="useUnicode">true</prop>
+                <prop key="hibernate.id.new_generator_mappings">false</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="transactionManager"
+          class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <tx:annotation-driven proxy-target-class="true" transaction-manager="transactionManager"/>
+
+    <bean id="carDao" class="persistence.daoimpl.CarDaoImpl"/>
+    <bean id="managerDao" class="persistence.daoimpl.ManagerDaoImpl"/>
+    <bean id="dealDao" class="persistence.daoimpl.DealDaoImpl"/>
+    <bean id="brandDao" class="persistence.daoimpl.BrandDaoImpl"/>
+
+    <bean id="carService" class="persistence.serviceimpl.CarManagementServiceImpl">
+        <constructor-arg ref="carDao" />
+        <constructor-arg ref="dealDao" />
+    </bean>
+    <bean id="staffService" class="persistence.serviceimpl.StaffManagerServiceImpl">
+        <constructor-arg ref="managerDao" />
+        <constructor-arg ref="dealDao" />
+    </bean>
+    <bean id="utilService" class="persistence.serviceimpl.UtilServiceImpl">
+        <constructor-arg ref="carDao" />
+        <constructor-arg ref="managerDao" />
+        <constructor-arg ref="dealDao" />
+        <constructor-arg ref="brandDao" />
+    </bean>
+
+    <bean id="consoleio" class="console.ConsoleIO">
+        <constructor-arg ref="carService" />
+        <constructor-arg ref="staffService" />
+        <constructor-arg ref="utilService" />
+    </bean>
+</beans>
