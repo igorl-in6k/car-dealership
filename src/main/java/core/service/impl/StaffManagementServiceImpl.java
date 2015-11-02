@@ -8,12 +8,12 @@ import core.service.StaffManagementService;
 
 import java.util.List;
 
-public class StaffManagerServiceImpl implements StaffManagementService {
+public class StaffManagementServiceImpl implements StaffManagementService {
 
     private ManagerDao managerDao;
     private DealDao dealDao;
 
-    public StaffManagerServiceImpl(ManagerDao managerDao, DealDao dealDao) {
+    public StaffManagementServiceImpl(ManagerDao managerDao, DealDao dealDao) {
         this.managerDao = managerDao;
         this.dealDao = dealDao;
     }

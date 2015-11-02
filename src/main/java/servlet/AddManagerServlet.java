@@ -20,10 +20,8 @@ public class AddManagerServlet extends BaseServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        String name = req.getParameter("name");
-        int age = Integer.parseInt(req.getParameter("age"));
-        Manager manager = new  Manager(name, age);
-        staffService.addManager(manager);
+        Manager manager = parseManager(req);
+        managerService.addManager(manager);
         req.setAttribute("manager", manager);
         req.getRequestDispatcher("/jsp/addedmanager.jsp").forward(req, resp);
     }

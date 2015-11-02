@@ -201,8 +201,8 @@ public class ConsoleIO {
         for (Deal deal : staffService.getDealsByManager(manager)) {
             System.out.println(LIST_ITEMS_COLOR + "\t" + idx++ + ". " + deal);
         }
-        Brand bySells = reportService.getManagerPreferredBrandByDealsAmount(manager);
-        Brand byPrice = reportService.getManagerPreferredBrandByPriceAmount(manager);
+        Brand bySells = reportService.getManagerPreferredBrandByPriceAmount(manager);
+        Brand byPrice = reportService.getManagerPreferredBrandByDealsAmount(manager);
         System.out.println(ADVANCED_INFORMATION_COLOR + "Preferred brand by sells amount: " + bySells);
         System.out.println(ADVANCED_INFORMATION_COLOR + "Preferred brand by price amount: " + byPrice);
         printLastLine();

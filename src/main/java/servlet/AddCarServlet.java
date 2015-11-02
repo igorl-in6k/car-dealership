@@ -1,6 +1,6 @@
 package servlet;
 
-import core.entity.Brand;
+
 import core.entity.Car;
 
 import javax.servlet.ServletException;
@@ -22,10 +22,7 @@ public class AddCarServlet extends BaseServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        Brand brand = brandService.getBrandById(Integer.parseInt(req.getParameter("brand_id")));
-        String model = req.getParameter("model");
-        int price = Integer.parseInt(req.getParameter("price"));
-        Car car = new Car(brand, model, price);
+        Car car = parseCar(req);
         carService.addCar(car);
         req.setAttribute("car", car);
         req.getRequestDispatcher("/jsp/addedcar.jsp").forward(req, resp);

@@ -14,22 +14,16 @@ public class SellCarServlet extends BaseServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if ( req.getParameter("car_id") == null ) {
-            req.setAttribute("cars", carService.getAvailableCars());
-        }
-        else {
-            req.setAttribute("car", carService.getCarById(Integer.parseInt(req.getParameter("car_id"))));
-        }
-        if ( req.getParameter("manager_id") == null ) {
-            req.setAttribute("managers", staffService.getManagers());
-        }
+        req.setAttribute("car", carService.getCarById(Integer.parseInt(req.getParameter("car_id"))));
+        req.setAttribute("managers", managerService.getManagers());
         req.getRequestDispatcher("jsp/sellcar.jsp").forward(req,resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Car car = carService.getCarById(Integer.parseInt(req.getParameter("car_id")));
-        Manager manager = staffService.getManagerById(Integer.parseInt(req.getParameter("manager_id")));
+        Manager manager = managerService.getManagerById(
+                Integer.parseInt(req.getParameter("manager_id")));
         if ( !car.sold() ) {
             carService.sellCar(car, manager);
             req.setAttribute("car", car);

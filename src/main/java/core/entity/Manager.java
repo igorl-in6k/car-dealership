@@ -51,4 +51,12 @@ public class Manager {
     public String toString() {
         return "(" + id + ") " + name + "; " + age + " y.o.";
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if ( this == obj ) return true;
+        if ( !(obj instanceof Manager) ) return false;
+        Manager that = (Manager) obj;
+        return this.name.equals(that.name) && this.age == that.age;
+    }
 }

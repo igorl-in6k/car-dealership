@@ -14,13 +14,13 @@ public class ManagerServlet extends BaseServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
-        Manager manager = staffService.getManagerById(id);
-        req.setAttribute("deals", staffService.getDealsByManager(manager));
+        Manager manager = managerService.getManagerById(id);
+        req.setAttribute("deals", managerService.getDealsByManager(manager));
         req.setAttribute("manager", manager);
         req.setAttribute("preferredBrandByPrice",
-                reportService.getManagerPreferredBrandByPriceAmount(manager));
-        req.setAttribute("preferredBrandByDeals",
                 reportService.getManagerPreferredBrandByDealsAmount(manager));
+        req.setAttribute("preferredBrandByDeals",
+                reportService.getManagerPreferredBrandByPriceAmount(manager));
         req.getRequestDispatcher("/jsp/managerinfo.jsp").forward(req,resp);
     }
 

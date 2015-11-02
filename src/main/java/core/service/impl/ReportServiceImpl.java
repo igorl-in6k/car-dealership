@@ -18,7 +18,7 @@ public class ReportServiceImpl implements ReportService {
     }
 
     @Override
-    public Brand getManagerPreferredBrandByDealsAmount(Manager manager) {
+    public Brand getManagerPreferredBrandByPriceAmount(Manager manager) {
         Map<Brand, Integer> brandsAndPrices = new HashMap<>();
         int maxPrice = 0;
         Brand preferredBrand = new Brand();
@@ -38,7 +38,7 @@ public class ReportServiceImpl implements ReportService {
     }
 
     @Override
-    public Brand getManagerPreferredBrandByPriceAmount(Manager manager) {
+    public Brand getManagerPreferredBrandByDealsAmount(Manager manager) {
         Map<Brand, Integer> brandsAndCounts = new HashMap<>();
         int max = 0;
         Brand maxBrand = new Brand();

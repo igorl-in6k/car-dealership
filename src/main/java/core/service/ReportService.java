@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface ReportService {
 
-    Brand getManagerPreferredBrandByDealsAmount(Manager manager);
-
     Brand getManagerPreferredBrandByPriceAmount(Manager manager);
+
+    Brand getManagerPreferredBrandByDealsAmount(Manager manager);
 
 }

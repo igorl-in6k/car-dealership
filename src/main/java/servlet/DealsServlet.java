@@ -11,7 +11,7 @@ public class DealsServlet extends BaseServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("deals", staffService.getAllDeals());
+        req.setAttribute("deals", managerService.getAllDeals());
         req.getRequestDispatcher("jsp/deals.jsp").forward(req,resp);
     }
 

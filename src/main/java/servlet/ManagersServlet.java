@@ -10,8 +10,9 @@ import java.io.IOException;
 public class ManagersServlet extends BaseServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("managers", staffService.getManagers());
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        req.setAttribute("managers", managerService.getManagers());
         req.getRequestDispatcher("jsp/managers.jsp").forward(req,resp);
     }
 

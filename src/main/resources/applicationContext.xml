@@ -51,7 +51,7 @@
         <constructor-arg ref="carDao" />
         <constructor-arg ref="dealDao" />
     </bean>
-    <bean id="staffService" class="core.service.impl.StaffManagerServiceImpl">
+    <bean id="staffService" class="core.service.impl.StaffManagementServiceImpl">
         <constructor-arg ref="managerDao" />
         <constructor-arg ref="dealDao" />
     </bean>

@@ -23,6 +23,6 @@ public class ManagerDaoImpl extends BaseDaoImpl<Manager> implements ManagerDao {
 
     private Criteria createCriteria() {
         return getSession()
-                .createCriteria(Car.class);
+                .createCriteria(Manager.class);
     }
 }
