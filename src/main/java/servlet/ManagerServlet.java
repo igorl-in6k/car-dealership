@@ -18,9 +18,9 @@ public class ManagerServlet extends BaseServlet {
         req.setAttribute("deals", managerService.getDealsByManager(manager));
         req.setAttribute("manager", manager);
         req.setAttribute("preferredBrandByPrice",
-                reportService.getManagerPreferredBrandByDealsAmount(manager));
-        req.setAttribute("preferredBrandByDeals",
                 reportService.getManagerPreferredBrandByPriceAmount(manager));
+        req.setAttribute("preferredBrandByDeals",
+                reportService.getManagerPreferredBrandByDealsAmount(manager));
         req.getRequestDispatcher("/jsp/managerinfo.jsp").forward(req,resp);
     }
 

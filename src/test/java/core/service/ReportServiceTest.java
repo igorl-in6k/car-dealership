@@ -11,6 +11,7 @@ import static org.junit.Assert.*;
 
 public class ReportServiceTest {
 
+    /*
     ReportService rs;
     FakeDealDaoImpl dd;
 
@@ -39,4 +40,5 @@ public class ReportServiceTest {
                 is(rs.getManagerPreferredBrandByDealsAmount(
                         new Manager("Man2", 25))));
     }
+    */
 }

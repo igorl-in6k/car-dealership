@@ -23,15 +23,15 @@ public class ReportServiceImpl implements ReportService {
         int maxPrice = 0;
         Brand preferredBrand = new Brand();
         for (Deal deal : dealDao.getDealsByManager(manager)) {
-            Brand currentDealCarBrand = deal.getCar().getBrand();
-            int currentDealCarPrice = deal.getCar().getPrice();
-            if (brandsAndPrices.containsKey(currentDealCarBrand)) {
-                currentDealCarPrice += brandsAndPrices.get(currentDealCarBrand);
+            Brand currentDealBrand = deal.getCarBrand();
+            int currentDealPrice = deal.getCarPrice();
+            if (brandsAndPrices.containsKey(currentDealBrand)) {
+                currentDealPrice += brandsAndPrices.get(currentDealBrand);
             }
-            brandsAndPrices.put(currentDealCarBrand, currentDealCarPrice);
-            if ( currentDealCarPrice > maxPrice ) {
-                preferredBrand = currentDealCarBrand;
-                maxPrice = currentDealCarPrice;
+            brandsAndPrices.put(currentDealBrand, currentDealPrice);
+            if ( currentDealPrice > maxPrice ) {
+                preferredBrand = currentDealBrand;
+                maxPrice = currentDealPrice;
             }
         }
         return preferredBrand;

@@ -49,6 +49,14 @@ public class Deal {
         return car;
     }
 
+    public int getCarPrice() {
+        return car.getPrice();
+    }
+
+    public Brand getCarBrand() {
+        return car.getBrand();
+    }
+
     @Override
     public String toString() {
         return "Deal " + id + ": " + car + "; " + manager + ";";
