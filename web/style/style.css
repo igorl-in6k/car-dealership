@@ -65,7 +65,7 @@ select {
     left: 300px;
 }
 
-#common-link {
+.common-link {
     text-decoration: none;
     color: white;
     font-size: 25px;
