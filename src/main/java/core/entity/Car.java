@@ -75,6 +75,10 @@ public class Car {
         return brand.getName() + " " + model;
     }
 
+    public String getBrandName() {
+        return brand.getName();
+    }
+
     public boolean sold() {
         return !saleDate.equals("");
     }

@@ -11,12 +11,12 @@ import core.service.CarService;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class CarManagementServiceImpl implements CarService {
+public class CarServiceImpl implements CarService {
 
     private CarDao carDao;
     private DealDao dealDao;
 
-    public CarManagementServiceImpl(CarDao carDao, DealDao dealDao) {
+    public CarServiceImpl(CarDao carDao, DealDao dealDao) {
         this.carDao = carDao;
         this.dealDao = dealDao;
     }
@@ -26,15 +26,6 @@ public class CarManagementServiceImpl implements CarService {
         carDao.add(newCar);
     }
 
-    @Override
-    public void sellCar(Car car, Manager manager) {
-        LocalDateTime saleDate = LocalDateTime.now();
-        car.setSaleDate(String.format("%d.%d.%d %d:%d",
-                                      saleDate.getDayOfMonth(), saleDate.getMonthValue(), saleDate.getYear(),
-                                      saleDate.getHour(), saleDate.getMinute()));
-        carDao.addOrUpdate(car);
-        dealDao.add(new Deal(manager, car));
-    }
 
     @Override
     public List<Car> getCars() {

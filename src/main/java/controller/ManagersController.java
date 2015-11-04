@@ -48,4 +48,12 @@ public class ManagersController extends BaseController {
 
         return "redirect:/managers";
     }
+
+    @RequestMapping(value = "/managers/{managerId}/remove", method = RequestMethod.POST)
+    public String removeManager(@PathVariable int managerId, ModelMap model) {
+        Manager manager = managerService.getManagerById(managerId);
+        dealService.removeDeals(manager);
+        managerService.removeManager(manager);
+        return "redirect:/managers";
+    }
 }

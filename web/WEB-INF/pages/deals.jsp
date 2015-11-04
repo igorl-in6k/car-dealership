@@ -45,6 +45,7 @@
     </tr>
     <%}%>
   </table>
+  <br> <a href="/deals/new" class="common-link"> New deal </a> <br>
 </div>
 </body>
 </html>

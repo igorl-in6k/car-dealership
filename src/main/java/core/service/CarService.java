@@ -10,8 +10,6 @@ public interface CarService {
 
     void addCar(Car newCar);
 
-    void sellCar(Car car, Manager manager);
-
     List<Car> getCars();
 
     List<Car> getAvailableCars();

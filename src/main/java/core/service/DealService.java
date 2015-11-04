@@ -17,4 +17,8 @@ public interface DealService {
     void removeDeal(Deal deal);
 
     void removeDeal(Car car);
+
+    void removeDeals(Manager manager);
+
+    void sellCar(Car car, Manager manager);
 }

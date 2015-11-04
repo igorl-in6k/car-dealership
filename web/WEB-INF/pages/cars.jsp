@@ -46,7 +46,7 @@
       </td>
       <%if ("".equals(car.getSaleDate())){%>
       <td>
-        <a href="sellcar?car_id=<%=car.getId()%>" class="common-link"> sell </a>
+        <a href="/deals/new?car_id=<%=car.getId()%>" class="common-link"> sell </a>
       </td>
       <%} else {%>
       <td>

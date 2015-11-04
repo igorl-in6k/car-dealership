@@ -178,7 +178,7 @@ public class ConsoleIO {
                                "\nAborted" + DEFAULT_COLOR);
             return;
         }
-        carService.sellCar(car, manager);
+        dealService.sellCar(car, manager);
         System.out.println(MESSAGE_COLOR + "sold car: " + car + DEFAULT_COLOR);
         printLastLine();
     }

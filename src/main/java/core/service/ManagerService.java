@@ -1,6 +1,5 @@
 package core.service;
 
-import core.entity.Deal;
 import core.entity.Manager;
 
 import java.util.List;
@@ -13,4 +12,5 @@ public interface ManagerService {
 
     Manager getManagerById(int id);
 
+    void removeManager(Manager manager);
 }
