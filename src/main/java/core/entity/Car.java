@@ -20,7 +20,9 @@ public class Car {
 
     private String saleDate; //todo  local date time
 
-    public Car() {}
+    public Car() {
+        saleDate = "";
+    }
 
     public Car(Brand brand, String model, int price) {
         this.price = price;

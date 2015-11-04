@@ -13,7 +13,7 @@
   <a href="/deals" class="btn"> Deals </a> <br>
 </div>
 <div id="content">
-  <form method="post" action="/addcar">
+  <form method="post" action="/cars/new">
     <label for="brand_id">Brand: </label>
     <select name="brand_id" id="brand_id">
       <%for (Brand brand : (List<Brand>)request.getAttribute("brands")) {%>
