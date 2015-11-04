@@ -19,7 +19,7 @@ public class DealsController extends BaseController {
 
     @RequestMapping(value = "/deals/new", method = RequestMethod.GET)
     public String newDeal(ModelMap model) {
-        model.addAttribute("cars", carService.getCars());
+        model.addAttribute("cars", carService.getAvailableCars());
         model.addAttribute("managers", managerService.getManagers());
         return "newdeal";
     }

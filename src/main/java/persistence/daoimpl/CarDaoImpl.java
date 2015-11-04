@@ -35,7 +35,7 @@ public class CarDaoImpl extends BaseDaoImpl<Car> implements CarDao {
     public List<Car> getCarsByBrand(Brand brand) {
         return getSession()
                 .createCriteria(Car.class)
-                .add(Restrictions.eq("brand", brand.getId()))
+                .add(Restrictions.eq("brand", brand))
                 .list();
     }
 

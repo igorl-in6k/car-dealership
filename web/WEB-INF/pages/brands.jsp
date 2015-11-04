@@ -20,6 +20,7 @@
       <td> #</td>
       <td> ID</td>
       <td> NAME</td>
+      <td> REMOVE</td>
     </tr>
     <%int i = 1;%>
     <%for (Brand brand : (List<Brand>) request.getAttribute("brands")) {%>
@@ -32,6 +33,11 @@
       </td>
       <td>
         <%=brand.getName()%>
+      </td>
+      <td>
+        <form method="post" action="/brands/<%=brand.getId()%>/remove">
+          <input type="submit" name="remove_brand" value="remove">
+        </form>
       </td>
     </tr>
     <%}%>

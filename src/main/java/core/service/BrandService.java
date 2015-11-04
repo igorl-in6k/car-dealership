@@ -14,4 +14,6 @@ public interface BrandService {
 
     List<Brand> getAllBrands();
 
+    void removeBrand(Brand brand);
+
 }

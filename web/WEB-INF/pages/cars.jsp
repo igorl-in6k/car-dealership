@@ -55,9 +55,7 @@
       <%}%>
       <td>
         <form method="post" action="/cars/<%=car.getId()%>/remove">
-          <a href="cars/<%=car.getId()%>/remove" class="common-link">
             <input type="submit" name="add_car" value="remove">
-          </a>
         </form>
       </td>
     </tr>
