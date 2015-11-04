@@ -1,5 +1,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="core.entity.Deal" %>
+<%@ page import="core.entity.Brand" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -18,33 +19,24 @@
     <tr id="table-titles">
       <td> #</td>
       <td> ID</td>
-      <td> MANAGER</td>
-      <td> CAR</td>
-      <td> PRICE</td>
+      <td> NAME</td>
     </tr>
     <%int i = 1;%>
-    <%for (Deal deal : (List<Deal>) request.getAttribute("deals")) {%>
+    <%for (Brand brand : (List<Brand>) request.getAttribute("brands")) {%>
     <tr>
       <td>
         <%=i++%>
       </td>
       <td>
-        <%=deal.getId()%>
+        <%=brand.getId()%>
       </td>
       <td>
-        <a href="/managers/<%=deal.getManager().getId()%>" id="common-link" style="font-size: 25px;">
-          <%=deal.getManager().getName() + " (" + deal.getManager().getAge() + " y.o.)"%>
-        </a>
-      </td>
-      <td>
-        <%=deal.getCar().getName()%>
-      </td>
-      <td>
-        $<%=deal.getCar().getPrice()%>
+        <%=brand.getName()%>
       </td>
     </tr>
     <%}%>
   </table>
+  <br> <a href="/cars/brands/new" class="common-link"> Add brand </a> <br>
 </div>
 </body>
 </html>

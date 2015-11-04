@@ -23,6 +23,7 @@
       <td> MODEL</td>
       <td> PRICE</td>
       <td> SALE DATE</td>
+      <td> REMOVE</td>
     </tr>
     <%int i = 1;%>
     <%for (Car car : (List<Car>) request.getAttribute("cars")) {%>
@@ -31,7 +32,7 @@
         <%=i++%>
       </td>
       <td>
-        <%=car.getId()%>
+        <a class="common-link" href="/cars/<%=car.getId()%>"> <%=car.getId()%> </a>
       </td>
       <td>
         <%=car.getBrand()%>
@@ -52,11 +53,18 @@
         <%=car.getSaleDate()%>
       </td>
       <%}%>
+      <td>
+        <form method="post" action="/cars/<%=car.getId()%>/remove">
+          <a href="cars/<%=car.getId()%>/remove" class="common-link">
+            <input type="submit" name="add_car" value="remove">
+          </a>
+        </form>
+      </td>
     </tr>
     <%}%>
   </table>
   <br> <a href="/cars/new" class="common-link"> Add car </a> <br>
-  <br> <a href="/addbrand" class="common-link"> Add brand </a> <br>
+  <br> <a href="/cars/brands" class="common-link"> All brands </a> <br>
 </div>
 </body>
 </html>

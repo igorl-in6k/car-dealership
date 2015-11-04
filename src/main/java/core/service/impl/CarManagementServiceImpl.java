@@ -6,12 +6,12 @@ import core.entity.Brand;
 import core.entity.Car;
 import core.entity.Deal;
 import core.entity.Manager;
-import core.service.CarManagementService;
+import core.service.CarService;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class CarManagementServiceImpl implements CarManagementService {
+public class CarManagementServiceImpl implements CarService {
 
     private CarDao carDao;
     private DealDao dealDao;
@@ -54,6 +54,11 @@ public class CarManagementServiceImpl implements CarManagementService {
     @Override
     public Car getCarById(int id) {
         return carDao.getById(id);
+    }
+
+    @Override
+    public void removeCar(Car car) {
+        carDao.delete(car);
     }
 
 }

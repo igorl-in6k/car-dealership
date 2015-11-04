@@ -1,19 +1,18 @@
 package controller;
 
-import core.service.BrandService;
-import core.service.CarManagementService;
-import core.service.ReportService;
-import core.service.StaffManagementService;
+import core.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class BaseController {
 
     @Autowired
-    protected StaffManagementService managerService;
+    protected ManagerService managerService;
     @Autowired
-    protected CarManagementService carService;
+    protected CarService carService;
     @Autowired
     protected BrandService brandService;
     @Autowired
     protected ReportService reportService;
+    @Autowired
+    protected DealService dealService;
 }

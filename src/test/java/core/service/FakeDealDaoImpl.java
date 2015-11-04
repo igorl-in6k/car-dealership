@@ -59,6 +59,11 @@ public class FakeDealDaoImpl implements DealDao {
     }
 
     @Override
+    public Deal getDealByCar(Car car) { // todo
+        return null;
+    }
+
+    @Override
     public List<Deal> getAll() {
         return deals;
     }

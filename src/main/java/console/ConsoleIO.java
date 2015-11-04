@@ -4,10 +4,7 @@ import core.entity.Brand;
 import core.entity.Car;
 import core.entity.Deal;
 import core.entity.Manager;
-import core.service.BrandService;
-import core.service.CarManagementService;
-import core.service.StaffManagementService;
-import core.service.ReportService;
+import core.service.*;
 
 import java.util.Scanner;
 
@@ -16,21 +13,24 @@ import static console.OutputForegroundColors.*;
 
 public class ConsoleIO {
 
-    private CarManagementService carService;
-    private StaffManagementService staffService;
+    private CarService carService;
+    private ManagerService staffService;
     private ReportService reportService;
     private BrandService brandService;
+    private DealService dealService;
     private Scanner                     sc;
     private boolean exit = false;
 
-    public ConsoleIO(CarManagementService carService,
-                     StaffManagementService staffService,
+    public ConsoleIO(CarService carService,
+                     ManagerService staffService,
                      BrandService brandService,
-                     ReportService utilService) {
+                     ReportService utilService,
+                     DealService dealService) {
         this.carService = carService;
         this.staffService = staffService;
         this.reportService = utilService;
         this.brandService = brandService;
+        this.dealService = dealService;
         this.sc = new Scanner(System.in);
     }
 
@@ -198,7 +198,7 @@ public class ConsoleIO {
         System.out.println(MESSAGE_COLOR + "" + manager);
         System.out.print(DEFAULT_COLOR);
         int idx = 1;
-        for (Deal deal : staffService.getDealsByManager(manager)) {
+        for (Deal deal : dealService.getDealsByManager(manager)) {
             System.out.println(LIST_ITEMS_COLOR + "\t" + idx++ + ". " + deal);
         }
         Brand bySells = reportService.getManagerPreferredBrandByPriceAmount(manager);
@@ -213,7 +213,7 @@ public class ConsoleIO {
         int idx = 1;
         System.out.print(LIST_ITEMS_COLOR);
         for (Manager manager : staffService.getManagers()) {
-            for (Deal deal : staffService.getDealsByManager(manager)) {
+            for (Deal deal : dealService.getDealsByManager(manager)) {
                 System.out.printf("\t%s%d. Deal %d: %s%s %s. %sSale Manager: %s%s\n",
                                   LIST_ITEMS_COLOR, idx++, deal.getId(), CAR_NAME_COLOR,
                                   deal.getCar().getBrand().getName(), deal.getCar().getModel(),

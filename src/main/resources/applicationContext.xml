@@ -58,6 +58,9 @@
     <bean id="brandService" class="core.service.impl.BrandServiceImpl">
         <constructor-arg ref="brandDao" />
     </bean>
+    <bean id="dealService" class="core.service.impl.DealServiceImpl">
+        <constructor-arg ref="dealDao" />
+    </bean>
     <bean id="reportService" class="core.service.impl.ReportServiceImpl">
         <constructor-arg ref="dealDao" />
     </bean>
@@ -67,5 +70,6 @@
         <constructor-arg ref="staffService" />
         <constructor-arg ref="brandService" />
         <constructor-arg ref="reportService" />
+        <constructor-arg ref="dealService" />
     </bean>
 </beans>

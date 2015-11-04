@@ -2,13 +2,12 @@ package core.service.impl;
 
 import core.dao.DealDao;
 import core.dao.ManagerDao;
-import core.entity.Deal;
 import core.entity.Manager;
-import core.service.StaffManagementService;
+import core.service.ManagerService;
 
 import java.util.List;
 
-public class StaffManagementServiceImpl implements StaffManagementService {
+public class StaffManagementServiceImpl implements ManagerService {
 
     private ManagerDao managerDao;
     private DealDao dealDao;
@@ -31,15 +30,5 @@ public class StaffManagementServiceImpl implements StaffManagementService {
     @Override
     public Manager getManagerById(int id) {
         return managerDao.getById(id);
-    }
-
-    @Override
-    public List<Deal> getDealsByManager(Manager manager) {
-        return dealDao.getDealsByManager(manager);
-    }
-
-    @Override
-    public List<Deal> getAllDeals() {
-        return dealDao.getAll();
     }
 }

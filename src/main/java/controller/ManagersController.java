@@ -21,7 +21,7 @@ public class ManagersController extends BaseController {
     public String findOwner(@PathVariable int managerId, ModelMap model) {
         Manager manager = managerService.getManagerById(managerId);
         model.addAttribute("manager", manager);
-        model.addAttribute("deals", managerService.getDealsByManager(manager));
+        model.addAttribute("deals", dealService.getDealsByManager(manager));
         model.addAttribute("manager", manager);
         model.addAttribute("preferredBrandByPrice",
                 reportService.getManagerPreferredBrandByPriceAmount(manager));

@@ -5,7 +5,7 @@ import core.entity.Manager;
 
 import java.util.List;
 
-public interface StaffManagementService {
+public interface ManagerService {
 
     void addManager(Manager newManager);
 
@@ -13,7 +13,4 @@ public interface StaffManagementService {
 
     Manager getManagerById(int id);
 
-    List<Deal> getDealsByManager(Manager manager);
-
-    List<Deal> getAllDeals();
 }

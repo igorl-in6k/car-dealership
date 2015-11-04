@@ -1,6 +1,7 @@
 package persistence.daoimpl;
 
 import core.dao.DealDao;
+import core.entity.Car;
 import core.entity.Deal;
 import core.entity.Manager;
 import org.hibernate.criterion.Restrictions;
@@ -30,6 +31,15 @@ public class DealDaoImpl extends BaseDaoImpl<Deal> implements DealDao {
                 .createCriteria(Deal.class)
                 .add(Restrictions.eq("manager", manager))
                 .list();
+    }
+
+    @Override
+    public Deal getDealByCar(Car car) {
+        return (Deal) getSession()
+                .createCriteria(Deal.class)
+                .add(Restrictions.eq("car", car))
+                .list()
+                .get(0);
     }
 
 }

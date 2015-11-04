@@ -6,7 +6,7 @@ import core.entity.Manager;
 
 import java.util.List;
 
-public interface CarManagementService {
+public interface CarService {
 
     void addCar(Car newCar);
 
@@ -20,4 +20,5 @@ public interface CarManagementService {
 
     Car getCarById(int id);
 
+    void removeCar(Car car);
 }
