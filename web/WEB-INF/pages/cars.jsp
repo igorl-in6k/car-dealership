@@ -23,7 +23,6 @@
       <td> MODEL</td>
       <td> PRICE</td>
       <td> SALE DATE</td>
-      <td> REMOVE</td>
     </tr>
     <%int i = 1;%>
     <%for (Car car : (List<Car>) request.getAttribute("cars")) {%>
@@ -53,11 +52,6 @@
         <%=car.getSaleDate()%>
       </td>
       <%}%>
-      <td>
-        <form method="post" action="/cars/<%=car.getId()%>/remove">
-            <input type="submit" name="add_car" value="remove">
-        </form>
-      </td>
     </tr>
     <%}%>
   </table>

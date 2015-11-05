@@ -20,7 +20,6 @@
       <td> ID</td>
       <td> NAME</td>
       <td> AGE</td>
-      <td> REMOVE</td>
     </tr>
     <%int i = 1;%>
     <%for (Manager manager : (List<Manager>) request.getAttribute("managers")) {%>
@@ -36,11 +35,6 @@
       </td>
       <td>
         <%=manager.getAge()%>
-      </td>
-      <td>
-        <form method="post" action="/managers/<%=manager.getId()%>/remove">
-            <input type="submit" name="remove_manager" value="remove">
-        </form>
       </td>
     </tr>
     <%}%>

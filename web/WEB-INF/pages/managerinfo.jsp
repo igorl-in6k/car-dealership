@@ -18,6 +18,9 @@
 <div id="content">
   <%Manager manager = (Manager) request.getAttribute("manager");%>
   <h1> <%=manager.getName()%></h1>
+  <form method="post" action="/managers/<%=manager.getId()%>/remove">
+    <input type="submit" name="remove_manager" value="remove">
+  </form>
   <table>
     <tr id="table-titles">
       <td> #</td>
