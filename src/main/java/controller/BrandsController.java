@@ -9,20 +9,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping(value = "/cars/brands")
 public class BrandsController extends BaseController {
 
-    @RequestMapping(value = "/cars/brands", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String getBrands(ModelMap modelMap) {
         modelMap.addAttribute("brands", brandService.getAllBrands());
         return "brands";
     }
 
-    @RequestMapping(value = "/cars/brands/new", method = RequestMethod.GET)
+    @RequestMapping(value = "/new", method = RequestMethod.GET)
     public String addBrandPage() {
         return "newbrand";
     }
 
-    @RequestMapping(value = "/cars/brands/new", method = RequestMethod.POST)
+    @RequestMapping(value = "/new", method = RequestMethod.POST)
     public String addCar(
             @RequestParam("name") String name){
         Brand brand = new Brand();
@@ -34,7 +35,7 @@ public class BrandsController extends BaseController {
         return "redirect:/cars/brands";
     }
 
-    @RequestMapping(value = "/brands/{brandId}/remove", method = RequestMethod.POST)
+    @RequestMapping(value = "/{brandId}/remove", method = RequestMethod.POST)
     public String removeBrand(@PathVariable int brandId, ModelMap model) {
         Brand brand = brandService.getBrandById(brandId);
         if ( carService.getCarsByBrand(brand).isEmpty() )

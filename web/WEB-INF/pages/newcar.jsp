@@ -14,8 +14,8 @@
 </div>
 <div id="content">
   <form method="post" action="/cars/new">
-    <label for="brand_id">Brand: </label>
-    <select name="brand_id" id="brand_id">
+    <label for="brandId">Brand: </label>
+    <select name="brandId" id="brandId">
       <%for (Brand brand : (List<Brand>)request.getAttribute("brands")) {%>
       <option value="<%=brand.getId()%>"><%=brand.getName()%></option>
       <%}%>

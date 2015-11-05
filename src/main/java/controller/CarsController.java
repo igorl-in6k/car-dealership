@@ -9,23 +9,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping(value = "/cars")
 public class CarsController extends BaseController {
 
-    @RequestMapping(value = "/cars", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String getCars(ModelMap modelMap) {
         modelMap.addAttribute("cars", carService.getCars());
         return "cars";
     }
 
-    @RequestMapping(value = "/cars/new", method = RequestMethod.GET)
+    @RequestMapping(value = "/new", method = RequestMethod.GET)
     public String addCarPage(ModelMap modelMap) {
         modelMap.addAttribute("brands", brandService.getAllBrands());
         return "newcar";
     }
 
-    @RequestMapping(value = "/cars/new", method = RequestMethod.POST)
+    @RequestMapping(value = "/new", method = RequestMethod.POST)
     public String addCar(
-            @RequestParam("brand_id") String brandId,
+            @RequestParam("brandId") String brandId,
             @RequestParam("model") String model,
             @RequestParam("price") String price){
         Car car = new Car();
@@ -39,7 +40,7 @@ public class CarsController extends BaseController {
         return "redirect:/cars";
     }
 
-    @RequestMapping(value = "/cars/{carId}/remove", method = RequestMethod.POST)
+    @RequestMapping(value = "/{carId}/remove", method = RequestMethod.POST)
     public String removeCar(@PathVariable int carId, ModelMap model) {
         Car car = carService.getCarById(carId);
         if ( car.sold() )
@@ -48,7 +49,7 @@ public class CarsController extends BaseController {
         return "redirect:/cars";
     }
 
-    @RequestMapping(value = "/cars/{carId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{carId}", method = RequestMethod.GET)
     public String getCar(@PathVariable int carId, ModelMap model) {
         Car car = carService.getCarById(carId);
         model.addAttribute("car", car);

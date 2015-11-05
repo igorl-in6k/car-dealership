@@ -35,7 +35,7 @@
         <%=brand.getName()%>
       </td>
       <td>
-        <form method="post" action="/brands/<%=brand.getId()%>/remove">
+        <form method="post" action="/cars/brands/<%=brand.getId()%>/remove">
           <input type="submit" name="remove_brand" value="remove">
         </form>
       </td>

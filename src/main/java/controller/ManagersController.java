@@ -9,15 +9,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping(value = "/managers")
 public class ManagersController extends BaseController {
 
-    @RequestMapping(value = "/managers", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String getManagers(ModelMap modelMap) {
         modelMap.addAttribute("managers", managerService.getManagers());
         return "managers";
     }
 
-    @RequestMapping(value = "/managers/{managerId}", method=RequestMethod.GET)
+    @RequestMapping(value = "/{managerId}", method=RequestMethod.GET)
     public String findOwner(@PathVariable int managerId, ModelMap model) {
         Manager manager = managerService.getManagerById(managerId);
         model.addAttribute("manager", manager);
@@ -30,27 +31,24 @@ public class ManagersController extends BaseController {
         return "managerinfo";
     }
 
-    @RequestMapping(value = "/managers/new", method = RequestMethod.GET)
-    public String newManagerPage(ModelMap modelMap) {
+    @RequestMapping(value = "/new", method = RequestMethod.GET)
+    public String newManagerPage() {
         return "newmanager";
     }
 
-    @RequestMapping(value = "/managers/new", method = RequestMethod.POST)
+    @RequestMapping(value = "/new", method = RequestMethod.POST)
     public String addManager(
             @RequestParam("name") String name,
             @RequestParam("age") int age){
         Manager manager = new Manager();
-
         manager.setName(name);
         manager.setAge(age);
-
         managerService.addManager(manager);
-
         return "redirect:/managers";
     }
 
-    @RequestMapping(value = "/managers/{managerId}/remove", method = RequestMethod.POST)
-    public String removeManager(@PathVariable int managerId, ModelMap model) {
+    @RequestMapping(value = "/{managerId}/remove", method = RequestMethod.POST)
+    public String removeManager(@PathVariable int managerId) {
         Manager manager = managerService.getManagerById(managerId);
         dealService.removeDeals(manager);
         managerService.removeManager(manager);
