@@ -1,4 +1,4 @@
-package controller;
+package web.controller;
 
 import core.entity.Brand;
 import org.springframework.stereotype.Controller;

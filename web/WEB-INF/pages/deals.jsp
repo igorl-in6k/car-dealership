@@ -5,7 +5,7 @@
 <html>
 <head>
   <title>Deals</title>
-  <link rel="stylesheet" type="text/css" href="/style/style.css">
+  <link rel="stylesheet" type="text/css" href="/resources/css/style.css">
 </head>
 <body>
 <div id="options">

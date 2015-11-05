@@ -4,7 +4,7 @@
 <html>
 <head>
   <title>Add car</title>
-  <link rel="stylesheet" type="text/css" href="/style/style.css">
+  <link rel="stylesheet" type="text/css" href="/resources/css/style.css">
 </head>
 <body>
 <div id="options">
@@ -13,7 +13,7 @@
   <a href="/deals" class="btn"> Deals </a> <br>
 </div>
 <div id="content">
-  <form method="post" action="/cars/new">
+  <form method="post" action="/cars">
     <label for="brandId">Brand: </label>
     <select name="brandId" id="brandId">
       <%for (Brand brand : (List<Brand>)request.getAttribute("brands")) {%>
@@ -28,7 +28,7 @@
     <label for="price"> Price: </label>
     <input type="text" name="price" id="price">
 
-    <input type="submit" name="add_car" value="add">
+    <button type="submit">Add</button>
   </form>
 </div>
 </body>

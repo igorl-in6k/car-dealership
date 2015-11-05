@@ -20,7 +20,7 @@ public class BrandDaoImpl extends BaseDaoImpl<Brand> implements BrandDao {
 
     @Override
     public Brand getById(int id) {
-        return getSession().get(Brand.class, id);
+        return getSession().load(Brand.class, id);
     }
 
     private Criteria createCriteria() {

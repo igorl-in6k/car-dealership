@@ -2,13 +2,13 @@
 <html>
 <head>
     <title>Main</title>
-    <link rel="stylesheet" type="text/css" href="/style/style.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
 </head>
 <body>
 <div id="options">
-    <a href="/cars" class="btn"> Cars </a> <br>
-    <a href="/managers" class="btn"> Managers </a> <br>
-    <a href="/deals" class="btn"> Deals </a> <br>
+    <a href="/cars" class="option"> CARS </a>
+    <a href="/managers" class="option"> MANAGERS </a>
+    <a href="/deals" class="option"> DEALS </a>
 </div>
 <div id="content">
     <h1 align="center"> Welcome! </h1>

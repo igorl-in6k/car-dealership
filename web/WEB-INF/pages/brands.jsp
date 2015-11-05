@@ -1,18 +1,17 @@
 <%@ page import="java.util.List" %>
-<%@ page import="core.entity.Deal" %>
 <%@ page import="core.entity.Brand" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
   <title>Deals</title>
-  <link rel="stylesheet" type="text/css" href="/style/style.css">
+  <link rel="stylesheet" type="text/css" href="/resources/css/style.css">
 </head>
 <body>
 <div id="options">
-  <a href="/cars" class="btn"> Cars </a> <br>
-  <a href="/managers" class="btn"> Managers </a> <br>
-  <a href="/deals" class="btn"> Deals </a> <br>
+  <a href="/cars" class="btn"> Cars </a>
+  <a href="/managers" class="btn"> Managers </a>
+  <a href="/deals" class="btn"> Deals </a>
 </div>
 <div id="content">
   <table>

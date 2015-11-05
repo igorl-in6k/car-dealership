@@ -1,4 +1,4 @@
-package controller;
+package web.controller;
 
 import core.entity.Manager;
 import org.springframework.stereotype.Controller;

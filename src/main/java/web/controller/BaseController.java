@@ -1,4 +1,4 @@
-package controller;
+package web.controller;
 
 import core.service.*;
 import org.springframework.beans.factory.annotation.Autowired;

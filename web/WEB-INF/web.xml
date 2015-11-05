@@ -34,4 +34,15 @@
         <param-value>classpath:applicationContext.xml</param-value>
     </context-param>
 
+    <!-- Filter for DELETE -->
+    <filter>
+        <filter-name>hiddenHttpMethodFilter</filter-name>
+        <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>hiddenHttpMethodFilter</filter-name>
+        <servlet-name>dispatcher</servlet-name>
+    </filter-mapping>
+
 </web-app>

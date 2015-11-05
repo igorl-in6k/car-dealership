@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="core.entity.Car" %>
 <%@ page import="java.util.List" %>
 
@@ -5,20 +6,19 @@
 <html>
 <head>
   <title>Cars Main</title>
-  <link rel="stylesheet" type="text/css" href="/style/style.css">
+  <link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
 </head>
 <body>
 <div id="options">
-  <a href="/cars" class="btn"> Cars </a> <br>
-  <a href="/managers" class="btn"> Managers </a> <br>
-  <a href="/deals" class="btn"> Deals </a> <br>
+  <a href="/cars" class="btn"> Cars </a>
+  <a href="/managers" class="btn"> Managers </a>
+  <a href="/deals" class="btn"> Deals </a>
 </div>
 <div id="content">
   <h1> All Cars </h1>
   <table>
     <tr id="table-titles">
       <td> #</td>
-      <td> ID</td>
       <td> BRAND</td>
       <td> MODEL</td>
       <td> PRICE</td>
@@ -31,13 +31,14 @@
         <%=i++%>
       </td>
       <td>
-        <a class="common-link" href="/cars/<%=car.getId()%>"> <%=car.getId()%> </a>
+        <a class="common-link" href="/cars/<%=car.getId()%>">
+            <%=car.getBrand()%>
+        </a>
       </td>
       <td>
-        <%=car.getBrand()%>
-      </td>
-      <td>
-        <%=car.getModel()%>
+        <a class="common-link" href="/cars/<%=car.getId()%>">
+          <%=car.getModel()%>
+        </a>
       </td>
       <td>
         $

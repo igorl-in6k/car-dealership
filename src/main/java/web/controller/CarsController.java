@@ -1,12 +1,10 @@
-package controller;
+package web.controller;
 
 import core.entity.Car;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import web.dto.CarDto;
 
 @Controller
 @RequestMapping(value = "/cars")
@@ -24,24 +22,15 @@ public class CarsController extends BaseController {
         return "newcar";
     }
 
-    @RequestMapping(value = "/new", method = RequestMethod.POST)
-    public String addCar(
-            @RequestParam("brandId") String brandId,
-            @RequestParam("model") String model,
-            @RequestParam("price") String price){
-        Car car = new Car();
-
-        car.setBrand(brandService.getBrandById(Integer.parseInt(brandId)));
-        car.setModel(model);
-        car.setPrice(Integer.parseInt(price));
-
-        carService.addCar(car);
-
+    @RequestMapping(method = RequestMethod.POST)
+    public String addCar(CarDto car){
+        car.setBrand(brandService.getBrandById(car.getBrandId()));
+        carService.addCar(car.toCar());
         return "redirect:/cars";
     }
 
-    @RequestMapping(value = "/{carId}/remove", method = RequestMethod.POST)
-    public String removeCar(@PathVariable int carId, ModelMap model) {
+    @RequestMapping(value = "/{carId}", method = RequestMethod.DELETE)
+    public String removeCar(@PathVariable int carId) {
         Car car = carService.getCarById(carId);
         if ( car.sold() )
             dealService.removeDeal(car);

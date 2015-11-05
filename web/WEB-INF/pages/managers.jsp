@@ -5,7 +5,7 @@
 <html>
 <head>
   <title>Managers</title>
-  <link rel="stylesheet" type="text/css" href="/style/style.css">
+  <link rel="stylesheet" type="text/css" href="/resources/css/style.css">
 </head>
 <body>
 <div id="options">
@@ -17,7 +17,6 @@
   <table>
     <tr id="table-titles">
       <td> #</td>
-      <td> ID</td>
       <td> NAME</td>
       <td> AGE</td>
     </tr>
@@ -26,9 +25,6 @@
     <tr>
       <td>
         <%=i++%>
-      </td>
-      <td>
-        <%=manager.getId()%>
       </td>
       <td>
         <a class="common-link" href="managers/<%=manager.getId()%>"> <%=manager.getName()%> </a>
