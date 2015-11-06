@@ -4,36 +4,57 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>Main</title>
-  <link rel="stylesheet" type="text/css" href="/resources/css/style.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>New Deal</title>
+
+    <link href="/resources/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div id="options">
-  <a href="/cars" class="btn"> Cars </a> <br>
-  <a href="/managers" class="btn"> Managers </a> <br>
-  <a href="/deals" class="btn"> Deals </a> <br>
+<div class="header-bar">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Automobile Dealership</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/cars">Cars</a></li>
+                    <li><a href="/managers">Managers</a></li>
+                    <li><a href="/deals">Deals</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </div>
 
-<div id="content">
+<div class="content">
 
-  <h2> Choose car and manager: </h2> <br>
-  <form action="/deals/new" method="post">
-      <label for="carId">Choose car: </label>
-      <select name="carId" id="carId">
-          <%for (Car car : (List<Car>)request.getAttribute("cars")) {%>
-          <option value="<%=car.getId()%>"><%=car.getName()%></option>
-          <%}%>
-      </select>
-      <br>
-      <label for="managerId">Choose manager: </label>
-      <select name="managerId" id="managerId" >
-          <%for (Manager manager : (List<Manager>)request.getAttribute("managers")) {%>
-          <option value="<%=manager.getId()%>"><%=manager.getName()%></option>
-          <%}%>
-      </select>
+    <h2> Choose car and manager: </h2> <br>
 
-      <input type="submit" name="sell_car" value="sell">
-  </form>
+    <form action="/deals/new" method="post">
+        <label for="carId">Choose car: </label>
+        <select name="carId" id="carId">
+            <%for (Car car : (List<Car>) request.getAttribute("cars")) {%>
+            <option value="<%=car.getId()%>"><%=car.getName()%>
+            </option>
+            <%}%>
+        </select>
+        <br>
+        <label for="managerId">Choose manager: </label>
+        <select name="managerId" id="managerId">
+            <%for (Manager manager : (List<Manager>) request.getAttribute("managers")) {%>
+            <option value="<%=manager.getId()%>"><%=manager.getName()%>
+            </option>
+            <%}%>
+        </select>
+
+        <input type="submit" name="sell_car" value="sell">
+    </form>
 
 </div>
 </body>

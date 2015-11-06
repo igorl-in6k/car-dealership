@@ -5,59 +5,93 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>Cars Main</title>
-  <link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Cars</title>
+
+    <link href="/resources/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div id="options">
-  <a href="/cars" class="btn"> Cars </a>
-  <a href="/managers" class="btn"> Managers </a>
-  <a href="/deals" class="btn"> Deals </a>
+<div class="header-bar">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Automobile Dealership</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+                    <li class="active"><a href="/cars">Cars</a></li>
+                    <li><a href="/managers">Managers</a></li>
+                    <li><a href="/deals">Deals</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </div>
-<div id="content">
-  <h1> All Cars </h1>
-  <table>
-    <tr id="table-titles">
-      <td> #</td>
-      <td> BRAND</td>
-      <td> MODEL</td>
-      <td> PRICE</td>
-      <td> SALE DATE</td>
-    </tr>
-    <%int i = 1;%>
-    <%for (Car car : (List<Car>) request.getAttribute("cars")) {%>
-    <tr>
-      <td>
-        <%=i++%>
-      </td>
-      <td>
-        <a class="common-link" href="/cars/<%=car.getId()%>">
-            <%=car.getBrand()%>
-        </a>
-      </td>
-      <td>
-        <a class="common-link" href="/cars/<%=car.getId()%>">
-          <%=car.getModel()%>
-        </a>
-      </td>
-      <td>
-        $
-        <%=car.getPrice()%>
-      </td>
-      <%if ("".equals(car.getSaleDate())){%>
-      <td>
-        <a href="/deals/new?car_id=<%=car.getId()%>" class="common-link"> sell </a>
-      </td>
-      <%} else {%>
-      <td>
-        <%=car.getSaleDate()%>
-      </td>
-      <%}%>
-    </tr>
+<div class="content">
+    <h1> All Cars </h1>
+
+    <%
+        List<Car> cars = (List<Car>) request.getAttribute("cars");
+        if (cars.isEmpty()) {%>
+            <h1> No cars added yet</h1>
+        <%}
+        else {
+    %>
+    <table class="tables table-bordered table-responsive table-hover" align="center" width="60%">
+        <thead>
+        <tr>
+            <th> #</th>
+            <th> BRAND</th>
+            <th> MODEL</th>
+            <th> PRICE</th>
+            <th> SALE DATE</th>
+        </tr>
+        </thead>
+
+
+        <tbody>
+        <%int i = 1;%>
+        <%for (Car car : cars) {%>
+        <tr>
+            <td>
+                <%=i++%>
+            </td>
+            <td>
+                <a class="btn-link" href="/cars/<%=car.getId()%>">
+                    <%=car.getBrand()%>
+                </a>
+            </td>
+            <td>
+                <a>
+                    <%=car.getModel()%>
+                </a>
+            </td>
+            <td>
+                $
+                <%=car.getPrice()%>
+            </td>
+            <%if ("".equals(car.getSaleDate())) {%>
+            <td>
+                <a class="btn-link" href="/deals/new?car_id=<%=car.getId()%>"> sell </a>
+            </td>
+            <%} else {%>
+            <td>
+                <%=car.getSaleDate()%>
+            </td>
+            <%}%>
+        </tr>
+
+        <%}%>
+        </tbody>
+    </table>
     <%}%>
-  </table>
-  <br> <a href="/cars/new" class="common-link"> Add car </a> <br>
-  <br> <a href="/cars/brands" class="common-link"> All brands </a> <br>
+    <br> <a class="btn-success btn-lg" href="/cars/new"> Add car </a>
+    <a class="btn-info btn-lg" href="/cars/brands"> All brands </a>
 </div>
 </body>
 </html>

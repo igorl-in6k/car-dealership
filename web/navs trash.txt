@@ -1,0 +1,24 @@
+common:
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <ul class="nav navbar-nav">
+            <li>
+                <a class="navbar-link" href="/cars">CARS</a>
+            </li>
+            <li>
+                <a class="navbar-link" href="/managers">MANAGERS</a>
+            </li>
+            <li>
+                <a class="navbar-link" href="/deals">DEALS</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<ul class="nav nav-tabs">
+  <li role="presentation"><a href="/">HOME</a></li>
+  <li role="presentation" class="active"><a href="/cars">CARS</a></li>
+  <li role="presentation"><a href="/managers">MANAGERS</a></li>
+  <li role="presentation"><a href="/deals">DEALS</a></li>
+</ul>
+

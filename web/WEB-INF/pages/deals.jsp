@@ -4,48 +4,74 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>Deals</title>
-  <link rel="stylesheet" type="text/css" href="/resources/css/style.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Deals</title>
+
+    <link href="/resources/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div id="options">
-  <a href="/cars" class="btn"> Cars </a> <br>
-  <a href="/managers" class="btn"> Managers </a> <br>
-  <a href="/deals" class="btn"> Deals </a> <br>
+<div class="header-bar">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Automobile Dealership</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/cars">Cars</a></li>
+                    <li><a href="/managers">Managers</a></li>
+                    <li class="active"><a href="/deals">Deals</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </div>
-<div id="content">
-  <table>
-    <tr id="table-titles">
-      <td> #</td>
-      <td> ID</td>
-      <td> MANAGER</td>
-      <td> CAR</td>
-      <td> PRICE</td>
-    </tr>
-    <%int i = 1;%>
-    <%for (Deal deal : (List<Deal>) request.getAttribute("deals")) {%>
-    <tr>
-      <td>
-        <%=i++%>
-      </td>
-      <td>
-        <%=deal.getId()%>
-      </td>
-      <td>
-        <a href="/managers/<%=deal.getManager().getId()%>" id="common-link" style="font-size: 25px;">
-          <%=deal.getManager().getName() + " (" + deal.getManager().getAge() + " y.o.)"%>
-        </a>
-      </td>
-      <td>
-        <%=deal.getCar().getName()%>
-      </td>
-      <td>
-        $<%=deal.getCar().getPrice()%>
-      </td>
-    </tr>
+<div class="content">
+    <%
+        List<Deal> deals = (List<Deal>) request.getAttribute("deals");
+        if (deals.isEmpty()) {%>
+    <h1> No deals added yet</h1>
+    <%}
+    else {
+    %>
+    <table class="tables table-bordered table-responsive table-hover" align="center" width="60%">
+        <thead>
+        <tr id="table-titles">
+            <th> #</th>
+            <th> MANAGER</th>
+            <th> CAR</th>
+            <th> PRICE</th>
+        </tr>
+        </thead>
+        <tbody>
+        <%int i = 1;%>
+        <%for (Deal deal : deals) {%>
+        <tr>
+            <td>
+                <%=i++%>
+            </td>
+            <td>
+                <a href="/managers/<%=deal.getManager().getId()%>" id="common-link" style="font-size: 25px;">
+                    <%=deal.getManager().getName() + " (" + deal.getManager().getAge() + " y.o.)"%>
+                </a>
+            </td>
+            <td>
+                <%=deal.getCar().getName()%>
+            </td>
+            <td>
+                $<%=deal.getCar().getPrice()%>
+            </td>
+        </tr>
+        <%}%>
+        </tbody>
+    </table>
     <%}%>
-  </table>
-  <br> <a href="/deals/new" class="common-link"> New deal </a> <br>
+    <br> <a class="btn-success btn-lg" href="/deals/new"> New deal </a> <br>
 </div>
 </body>
 </html>
