@@ -42,7 +42,8 @@ public class DealServiceImpl implements DealService {
 
     @Override
     public void removeDeal(Car car) {
-        dealDao.delete(dealDao.getDealByCar(car));
+        if ( car != null )
+            dealDao.delete(dealDao.getDealByCar(car));
     }
 
     @Override

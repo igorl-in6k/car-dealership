@@ -1,6 +1,7 @@
 package web.controller;
 
 import core.entity.Car;
+import core.entity.Deal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +33,7 @@ public class CarsController extends BaseController {
     @RequestMapping(value = "/{carId}", method = RequestMethod.DELETE)
     public String removeCar(@PathVariable int carId) {
         Car car = carService.getCarById(carId);
-        if ( car.sold() )
+        if ( car.sold() && dealService.getDealByCar(car) != null )
             dealService.removeDeal(car);
         carService.removeCar(car);
         return "redirect:/cars";

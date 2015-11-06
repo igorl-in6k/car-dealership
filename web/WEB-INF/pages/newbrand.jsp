@@ -29,11 +29,19 @@
     </nav>
 </div>
 <div class="content">
-    <form method="post" action="/cars/brands/new">
-        <label for="name"> Brand name: </label>
-        <input type="text" name="name" id="name">
+    <%--<form method="post" action="/cars/brands/new">--%>
+        <%--<label for="name"> Brand name: </label>--%>
+        <%--<input type="text" name="name" id="name">--%>
 
-        <input type="submit" name="add_brand" value="add">
+        <%--<input type="submit" name="add_brand" value="add">--%>
+    <%--</form>--%>
+    <h1>New Brand</h1>
+    <form class="form-inline" role="form" method="post" action="/cars/brands/new">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" name="name" id="name">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
     </form>
 </div>
 </body>

@@ -1,5 +1,6 @@
 package web.controller;
 
+import core.entity.Deal;
 import core.entity.Manager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -51,6 +52,9 @@ public class ManagersController extends BaseController {
     public String removeManager(@PathVariable int managerId) {
         Manager manager = managerService.getManagerById(managerId);
         dealService.removeDeals(manager);
+        for (Deal deal : dealService.getDealsByManager(manager)) {
+            carService.removeCar(deal.getCar());
+        }
         managerService.removeManager(manager);
         return "redirect:/managers";
     }

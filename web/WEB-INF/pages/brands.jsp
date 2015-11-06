@@ -15,45 +15,37 @@
 </head>
 <body>
 <div class="header-bar">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                        aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
                 <a class="navbar-brand" href="/">Automobile Dealership</a>
             </div>
-            <div id="navbar" class="collapse navbar-collapse">
+            <div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/cars">CARS</a></li>
-                    <li><a href="/managers">MANAGERS</a></li>
-                    <li><a href="/deals">DEALS</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li class="active"><a href="/cars">Cars</a></li>
+                    <li><a href="/managers">Managers</a></li>
+                    <li><a href="/deals">Deals</a></li>
                 </ul>
             </div>
-            <!--/.nav-collapse -->
         </div>
     </nav>
 </div>
 <div class="content">
-    <table>
+    <table class="tables table-bordered table-responsive table-hover" align="center" width="60%">
+        <thead>
         <tr id="table-titles">
-            <td> #</td>
-            <td> ID</td>
-            <td> NAME</td>
-            <td> REMOVE</td>
+            <th> #</th>
+            <th> NAME</th>
+            <th> REMOVE</th>
         </tr>
+        </thead>
+        <tbody>
         <%int i = 1;%>
         <%for (Brand brand : (List<Brand>) request.getAttribute("brands")) {%>
         <tr>
             <td>
                 <%=i++%>
-            </td>
-            <td>
-                <%=brand.getId()%>
             </td>
             <td>
                 <%=brand.getName()%>
@@ -65,6 +57,7 @@
             </td>
         </tr>
         <%}%>
+        </tbody>
     </table>
     <br> <a href="/cars/brands/new" class="common-link"> Add brand </a> <br>
 </div>

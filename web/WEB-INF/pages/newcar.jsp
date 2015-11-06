@@ -31,23 +31,26 @@
     </nav>
 </div>
 <div class="content">
-    <form method="post" action="/cars">
-        <label for="brandId">Brand: </label>
-        <select name="brandId" id="brandId">
-            <%for (Brand brand : (List<Brand>) request.getAttribute("brands")) {%>
-            <option value="<%=brand.getId()%>"><%=brand.getName()%>
-            </option>
-            <%}%>
-        </select>
-        <a href="/cars/brands/new" id="common-link" style="font-size: 20px;"> new brand</a>
-        <br> <br>
-        <label for="model"> Model: </label>
-        <input type="text" name="model" id="model">
-        <br> <br>
-        <label for="price"> Price: </label>
-        <input type="text" name="price" id="price">
-
-        <button type="submit">Add</button>
+    <h1>New Car</h1>
+    <form class="form-inline" role="form" method="post" action="/cars">
+        <div class="form-group">
+            <label for="brandId">Brand:</label>
+            <select class="form-control" name="brandId" id="brandId">
+                <%for (Brand brand : (List<Brand>) request.getAttribute("brands")) {%>
+                <option value="<%=brand.getId()%>"><%=brand.getName()%>
+                </option>
+                <%}%>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="model">Model:</label>
+            <input type="text" name="model" id="model" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="number" name="price" id="price" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
     </form>
 </div>
 </body>

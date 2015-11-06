@@ -34,12 +34,13 @@ public class DealDaoImpl extends BaseDaoImpl<Deal> implements DealDao {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public Deal getDealByCar(Car car) {
-        return (Deal) getSession()
+        List<Deal> deals = (List<Deal>) getSession()
                 .createCriteria(Deal.class)
                 .add(Restrictions.eq("car", car))
-                .list()
-                .get(0);
+                .list();
+        return deals.isEmpty() ? null : deals.get(0);
     }
 
 }
