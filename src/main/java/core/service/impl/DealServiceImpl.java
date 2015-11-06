@@ -31,6 +31,11 @@ public class DealServiceImpl implements DealService {
     }
 
     @Override
+    public Deal getDealById(int id) {
+        return dealDao.getById(id);
+    }
+
+    @Override
     public List<Deal> getAllDeals() {
         return dealDao.getAll();
     }

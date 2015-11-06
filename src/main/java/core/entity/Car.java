@@ -85,6 +85,6 @@ public class Car {
 
     @Override
     public String toString() {
-        return "(" + id + ") " + brand.getName() + " " + model + "($" + price + ")";
+        return brand.getName() + " " + model + "($" + price + ")";
     }
 }

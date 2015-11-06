@@ -12,6 +12,8 @@ public interface DealService {
 
     Deal getDealByCar(Car car);
 
+    Deal getDealById(int id);
+
     List<Deal> getAllDeals();
 
     void removeDeal(Deal deal);

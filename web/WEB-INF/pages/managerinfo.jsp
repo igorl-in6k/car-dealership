@@ -40,10 +40,6 @@
 <div class="content">
     <h1><%=manager.getName()%>
     </h1>
-
-    <form method="post" action="/managers/<%=manager.getId()%>/remove">
-        <input type="submit" name="remove_manager" value="remove">
-    </form>
     <table>
         <tr id="table-titles">
             <td> #</td>
@@ -81,6 +77,10 @@
 
     <h2> Preferred brand by price amount: <%=byPrice%>
     </h2>
+    <form method="post" action="/managers/<%=manager.getId()%>">
+        <input type="hidden" name="_method" value="DELETE"/>
+        <input type="submit" name="remove_manager" value="remove"/>
+    </form>
 </div>
 </body>
 </html>

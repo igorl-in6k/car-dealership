@@ -49,7 +49,7 @@ public class Manager {
 
     @Override
     public String toString() {
-        return "(" + id + ") " + name + "; " + age + " y.o.";
+        return name + "; " + age + " y.o.";
     }
 
     @Override

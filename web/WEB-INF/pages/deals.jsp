@@ -53,7 +53,9 @@
         <%for (Deal deal : deals) {%>
         <tr>
             <td>
-                <%=i++%>
+                <a href="deals/<%=deal.getId()%>">
+                    <%=i++%>
+                </a>
             </td>
             <td>
                 <a href="/managers/<%=deal.getManager().getId()%>" id="common-link" style="font-size: 25px;">
