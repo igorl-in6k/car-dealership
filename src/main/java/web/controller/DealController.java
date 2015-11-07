@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping(value = "/deals")
-public class DealsController {
+public class DealController {
 
     @Autowired
     DealService dealService;

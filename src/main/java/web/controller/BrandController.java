@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping(value = "/cars/brands")
-public class BrandsController {
+public class BrandController {
 
     @Autowired
     BrandService brandService;

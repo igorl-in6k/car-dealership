@@ -19,4 +19,6 @@ public interface CarService {
     Car getCarById(int id);
 
     void removeCar(Car car);
+
+    void editCar(Car car);
 }

@@ -44,6 +44,7 @@
         <input type="hidden" name="_method" value="DELETE"/>
         <input type="submit" name="remove_car" value="remove"/>
     </form>
+    <a class="btn-info btn-lg" href="/cars/<%=car.getId()%>/edit"> Edit </a>
 </div>
 </body>
 </html>

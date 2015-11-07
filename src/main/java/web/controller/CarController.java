@@ -13,7 +13,7 @@ import web.dto.CarDto;
 
 @Controller
 @RequestMapping(value = "/cars")
-public class CarsController {
+public class CarController {
 
     @Autowired
     CarService carService;
@@ -55,6 +55,24 @@ public class CarsController {
         Car car = carService.getCarById(carId);
         model.addAttribute("car", car);
         return "carinfo";
+    }
+
+    @RequestMapping(value = "/{carId}/edit", method = RequestMethod.GET)
+    public String editCarGet(@PathVariable int carId, ModelMap model) {
+        model.addAttribute("car", carService.getCarById(carId));
+        model.addAttribute("brands", brandService.getAllBrands());
+        return "editcar";
+    }
+
+    @RequestMapping(value = "/{carId}", method = RequestMethod.PATCH)
+    public String editCarPatch(@PathVariable int carId,
+                               @RequestParam("brandId") int brandId,
+                               @RequestParam("model") String model,
+                               @RequestParam("price") int price) {
+        Car car  = new Car(brandService.getBrandById(brandId), model, price);
+        car.setId(carId);
+        carService.editCar(car);
+        return "redirect:/cars/" + carId;
     }
 
 }

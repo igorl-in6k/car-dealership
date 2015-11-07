@@ -35,10 +35,7 @@ public class ManagerServiceImpl implements ManagerService {
     }
 
     @Override
-    public void editManager(int id, String newName, int newAge) {
-        Manager manager = getManagerById(id);
-        manager.setName(newName);
-        manager.setAge(newAge);
+    public void editManager(Manager manager) {
         managerDao.update(manager);
     }
 }

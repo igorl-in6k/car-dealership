@@ -52,4 +52,9 @@ public class CarServiceImpl implements CarService {
         carDao.delete(car);
     }
 
+    @Override
+    public void editCar(Car car) {
+        carDao.update(car);
+    }
+
 }

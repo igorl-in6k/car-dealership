@@ -14,5 +14,5 @@ public interface ManagerService {
 
     void removeManager(Manager manager);
 
-    void editManager(int id, String newName, int newAge);
+    void editManager(Manager manager);
 }

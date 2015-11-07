@@ -18,7 +18,7 @@ import javax.print.attribute.standard.MediaName;
 
 @Controller
 @RequestMapping(value = "/managers")
-public class ManagersController {
+public class ManagerController {
 
     @Autowired
     ManagerService managerService;
@@ -78,9 +78,9 @@ public class ManagersController {
 
     @RequestMapping(value = "/{managerId}", method = RequestMethod.PATCH)
     public String editManagerPatch(@PathVariable int managerId,
-                                   @RequestParam("name") String name,
-                                   @RequestParam("age") int age) {
-        managerService.editManager(managerId, name, age);
+                                   Manager manager) {
+        manager.setId(managerId);
+        managerService.editManager(manager);
         return "redirect:/managers/" + managerId;
     }
 }
