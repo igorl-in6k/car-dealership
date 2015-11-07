@@ -33,8 +33,6 @@
     </nav>
 </div>
 <div class="content">
-    <h1> All Cars </h1>
-
     <%
         List<Car> cars = (List<Car>) request.getAttribute("cars");
         if (cars.isEmpty()) {%>
@@ -43,6 +41,9 @@
         else {
     %>
     <table class="tables table-bordered table-responsive table-hover" align="center" width="60%">
+        <caption>
+            All Cars
+        </caption>
         <thead>
         <tr>
             <th> #</th>

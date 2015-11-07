@@ -55,7 +55,7 @@
                 <%=i++%>
             </td>
             <td>
-                <a class="common-link" href="managers/<%=manager.getId()%>">
+                <a href="managers/<%=manager.getId()%>">
                     <%=manager.getName()%>
                 </a>
             </td>

@@ -36,34 +36,20 @@
 
     <h2> Choose car and manager: </h2> <br>
 
-    <%--<form action="/deals/new" method="post">--%>
-        <%--<label for="carId">Choose car: </label>--%>
-        <%--<select name="carId" id="carId">--%>
-            <%--<%for (Car car : (List<Car>) request.getAttribute("cars")) {%>--%>
-            <%--<option value="<%=car.getId()%>"><%=car.getName()%>--%>
-            <%--</option>--%>
-            <%--<%}%>--%>
-        <%--</select>--%>
-        <%--<br>--%>
-        <%--<label for="managerId">Choose manager: </label>--%>
-        <%--<select name="managerId" id="managerId">--%>
-            <%--<%for (Manager manager : (List<Manager>) request.getAttribute("managers")) {%>--%>
-            <%--<option value="<%=manager.getId()%>"><%=manager.getName()%>--%>
-            <%--</option>--%>
-            <%--<%}%>--%>
-        <%--</select>--%>
-
-        <%--<input type="submit" name="sell_car" value="sell">--%>
-    <%--</form>--%>
-
     <h1>New Deal</h1>
     <form class="form-inline" role="form" method="post" action="/deals/new">
         <div class="form-group">
             <label for="carId">Car:</label>
             <select class="form-control" name="carId" id="carId">
                 <%for (Car car : (List<Car>) request.getAttribute("cars")) {%>
-                <option value="<%=car.getId()%>"><%=car.getName()%>
-                </option>
+                    <%String carIdParameter = request.getParameter("car_id");%>
+                    <%if (carIdParameter != null && carIdParameter.equals(Integer.toString(car.getId()))) {%>
+                        <option value="<%=car.getId()%>" selected="selected"> <%=car.getName()%>
+                        </option>
+                    <%} else {%>
+                        <option value="<%=car.getId()%>"> <%=car.getName()%>
+                        </option>
+                    <%}%>
                 <%}%>
             </select>
             <label for="managerId">Manager:</label>
