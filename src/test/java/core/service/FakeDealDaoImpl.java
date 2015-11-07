@@ -100,4 +100,9 @@ public class FakeDealDaoImpl implements DealDao {
         if ( !updated )
             deals.add(entityObj);
     }
+
+    @Override
+    public void update(Deal entityObj) {
+
+    }
 }

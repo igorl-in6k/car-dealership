@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.print.attribute.standard.MediaName;
+
 @Controller
 @RequestMapping(value = "/managers")
 public class ManagersController {
@@ -34,7 +36,7 @@ public class ManagersController {
     }
 
     @RequestMapping(value = "/{managerId}", method=RequestMethod.GET)
-    public String findOwner(@PathVariable int managerId, ModelMap model) {
+    public String managerInfo(@PathVariable int managerId, ModelMap model) {
         Manager manager = managerService.getManagerById(managerId);
         model.addAttribute("manager", manager);
         model.addAttribute("deals", dealService.getDealsByManager(manager));
@@ -52,12 +54,7 @@ public class ManagersController {
     }
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)
-    public String addManager(
-            @RequestParam("name") String name,
-            @RequestParam("age") int age){
-        Manager manager = new Manager();
-        manager.setName(name);
-        manager.setAge(age);
+    public String addManager(Manager manager){
         managerService.addManager(manager);
         return "redirect:/managers";
     }
@@ -71,5 +68,19 @@ public class ManagersController {
         }
         managerService.removeManager(manager);
         return "redirect:/managers";
+    }
+
+    @RequestMapping(value = "/{managerId}/edit", method = RequestMethod.GET)
+    public String editManagerGet(@PathVariable int managerId, ModelMap model) {
+        model.addAttribute("manager", managerService.getManagerById(managerId));
+        return "editmanager";
+    }
+
+    @RequestMapping(value = "/{managerId}", method = RequestMethod.PATCH)
+    public String editManagerPatch(@PathVariable int managerId,
+                                   @RequestParam("name") String name,
+                                   @RequestParam("age") int age) {
+        managerService.editManager(managerId, name, age);
+        return "redirect:/managers/" + managerId;
     }
 }

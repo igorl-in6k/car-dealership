@@ -72,15 +72,14 @@
     <br> <br>
     <%Brand byDeals = (Brand) request.getAttribute("preferredBrandByDeals");%>
     <%Brand byPrice = (Brand) request.getAttribute("preferredBrandByPrice");%>
-    <h2> Preferred brand by deals amount: <%=byDeals%>
-    </h2>
+    <h2> Preferred brand by deals amount: <%=byDeals%></h2>
+    <h2> Preferred brand by price amount: <%=byPrice%></h2>
 
-    <h2> Preferred brand by price amount: <%=byPrice%>
-    </h2>
     <form method="post" action="/managers/<%=manager.getId()%>">
         <input type="hidden" name="_method" value="DELETE"/>
         <input type="submit" name="remove_manager" value="remove"/>
     </form>
+    <a class="btn-info btn-lg" href="/managers/<%=manager.getId()%>/edit"> Edit </a>
 </div>
 </body>
 </html>

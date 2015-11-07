@@ -13,4 +13,6 @@ public interface ManagerService {
     Manager getManagerById(int id);
 
     void removeManager(Manager manager);
+
+    void editManager(int id, String newName, int newAge);
 }

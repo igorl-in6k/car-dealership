@@ -13,4 +13,6 @@ public interface BaseDao<T> {
     void delete(T entityObj);
 
     void addOrUpdate(T entityObj);
+
+    void update(T entityObj);
 }
