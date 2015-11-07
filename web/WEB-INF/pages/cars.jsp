@@ -41,7 +41,7 @@
         else {
     %>
     <table class="tables table-bordered table-responsive table-hover" align="center" width="60%">
-        <caption>
+        <caption align="center">
             All Cars
         </caption>
         <thead>

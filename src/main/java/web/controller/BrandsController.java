@@ -1,6 +1,9 @@
 package web.controller;
 
 import core.entity.Brand;
+import core.service.BrandService;
+import core.service.CarService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,7 +13,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping(value = "/cars/brands")
-public class BrandsController extends BaseController {
+public class BrandsController {
+
+    @Autowired
+    BrandService brandService;
+    @Autowired
+    CarService carService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String getBrands(ModelMap modelMap) {

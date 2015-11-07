@@ -2,6 +2,10 @@ package web.controller;
 
 import core.entity.Car;
 import core.entity.Deal;
+import core.service.BrandService;
+import core.service.CarService;
+import core.service.DealService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -9,7 +13,14 @@ import web.dto.CarDto;
 
 @Controller
 @RequestMapping(value = "/cars")
-public class CarsController extends BaseController {
+public class CarsController {
+
+    @Autowired
+    CarService carService;
+    @Autowired
+    BrandService brandService;
+    @Autowired
+    DealService dealService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String getCars(ModelMap modelMap) {

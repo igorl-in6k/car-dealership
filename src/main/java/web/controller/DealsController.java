@@ -1,6 +1,10 @@
 package web.controller;
 
 import core.entity.Deal;
+import core.service.CarService;
+import core.service.DealService;
+import core.service.ManagerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,7 +14,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping(value = "/deals")
-public class DealsController extends BaseController {
+public class DealsController {
+
+    @Autowired
+    DealService dealService;
+    @Autowired
+    CarService carService;
+    @Autowired
+    ManagerService managerService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String getDeals(ModelMap modelMap) {
