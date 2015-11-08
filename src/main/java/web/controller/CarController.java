@@ -1,7 +1,6 @@
 package web.controller;
 
 import core.entity.Car;
-import core.entity.Deal;
 import core.service.BrandService;
 import core.service.CarService;
 import core.service.DealService;
@@ -65,11 +64,9 @@ public class CarController {
     }
 
     @RequestMapping(value = "/{carId}", method = RequestMethod.PATCH)
-    public String editCarPatch(@PathVariable int carId,
-                               @RequestParam("brandId") int brandId,
-                               @RequestParam("model") String model,
-                               @RequestParam("price") int price) {
-        Car car  = new Car(brandService.getBrandById(brandId), model, price);
+    public String editCarPatch(@PathVariable int carId, CarDto carDto) {
+        carDto.setBrand(brandService.getBrandById(carDto.getBrandId()));
+        Car car = carDto.toCar();
         car.setId(carId);
         carService.editCar(car);
         return "redirect:/cars/" + carId;
