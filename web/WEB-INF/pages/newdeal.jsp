@@ -32,7 +32,7 @@
     </nav>
 </div>
 
-<div class="content">
+<div class="content" align="center">
 
     <h2> Choose car and manager: </h2> <br>
 
@@ -60,8 +60,7 @@
                 <%}%>
             </select>
         </div>
-
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-success">Done</button>
     </form>
 </div>
 </body>

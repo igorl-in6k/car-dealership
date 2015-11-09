@@ -37,19 +37,30 @@
         </div>
     </nav>
 </div>
-<div class="content">
-    <h1><%=manager.getName()%>
+<div class="content" align="center">
+    <h1>
+        <%=manager.getName() + " (" + manager.getAge() + " y.o.)" %>
     </h1>
-    <table>
-        <tr id="table-titles">
-            <td> #</td>
-            <td> ID</td>
-            <td> MANAGER</td>
-            <td> CAR</td>
-            <td> PRICE</td>
+    <%
+        List<Deal> deals = (List<Deal>) request.getAttribute("deals");
+        if (!deals.isEmpty()) {
+    %>
+    <table class="tables table-bordered table-responsive table-hover" align="center" width="60%">
+        <caption>
+            Manager Deals
+        </caption>
+        <thead>
+        <tr>
+            <th> #</th>
+            <th> ID</th>
+            <th> MANAGER</th>
+            <th> CAR</th>
+            <th> PRICE</th>
         </tr>
+        </thead>
+        <tbody>
         <%int i = 1;%>
-        <%for (Deal deal : (List<Deal>) request.getAttribute("deals")) {%>
+        <%for (Deal deal : deals) {%>
         <tr>
             <td>
                 <%=i++%>
@@ -58,28 +69,44 @@
                 <%=deal.getId()%>
             </td>
             <td>
-                <%=deal.getManager().getName() + " (" + deal.getManager().getAge() + " y.o.)"%>
+                <a href="/managers/<%=deal.getManager().getId()%>">
+                    <%=deal.getManager().getName()%>
+                </a>
             </td>
             <td>
-                <%=deal.getCar().getName()%>
+                <a href="/cars/<%=deal.getCar().getId()%>">
+                    <%=deal.getCar().getName()%>
+                </a>
             </td>
             <td>
                 $<%=deal.getCar().getPrice()%>
             </td>
         </tr>
         <%}%>
+        </tbody>
     </table>
+    <%} else {%>
+    <h1> No deals added yet</h1>
+    <%}%>
     <br> <br>
     <%Brand byDeals = (Brand) request.getAttribute("preferredBrandByDeals");%>
     <%Brand byPrice = (Brand) request.getAttribute("preferredBrandByPrice");%>
-    <h2> Preferred brand by deals amount: <%=byDeals%></h2>
-    <h2> Preferred brand by price amount: <%=byPrice%></h2>
+    <h2> Preferred brand by deals amount: <%=byDeals%>
+    </h2>
 
-    <form method="post" action="/managers/<%=manager.getId()%>">
-        <input type="hidden" name="_method" value="DELETE"/>
-        <input type="submit" name="remove_manager" value="remove"/>
-    </form>
-    <a class="btn-info btn-lg" href="/managers/<%=manager.getId()%>/edit"> Edit </a>
+    <h2> Preferred brand by price amount: <%=byPrice%>
+    </h2>
+
+    <div align="center">
+        <form method="post" action="/managers/<%=manager.getId()%>">
+            <input type="hidden" name="_method" value="DELETE"/>
+            <button type="submit" name="remove_manager" class="btn btn-danger">Remove</button>
+            <a class="btn-info btn-lg" href="/managers/<%=manager.getId()%>/edit" style="margin: 0 10px">
+                Edit
+            </a>
+        </form>
+    </div>
+
 </div>
 </body>
 </html>

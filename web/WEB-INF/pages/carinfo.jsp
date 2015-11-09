@@ -35,16 +35,21 @@
         </div>
     </nav>
 </div>
-<div class="content">
+<div class="content" align="center">
     <h1><%=car.getName()%>
     </h1>
     <br> <br>
 
-    <form method="post" action="/cars/<%=car.getId()%>">
-        <input type="hidden" name="_method" value="DELETE"/>
-        <input type="submit" name="remove_car" value="remove"/>
-    </form>
-    <a class="btn-info btn-lg" href="/cars/<%=car.getId()%>/edit"> Edit </a>
+    <div align="center">
+        <form method="post" action="/cars/<%=car.getId()%>">
+            <input type="hidden" name="_method" value="DELETE"/>
+            <button type="submit" name="remove_car" class="btn btn-danger">Remove</button>
+            <a class="btn-info btn-lg" href="/cars/<%=car.getId()%>/edit" style="margin: 0 10px">
+                Edit
+            </a>
+        </form>
+    </div>
 </div>
+
 </body>
 </html>

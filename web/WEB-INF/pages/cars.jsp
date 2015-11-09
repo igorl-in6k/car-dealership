@@ -32,7 +32,7 @@
         </div>
     </nav>
 </div>
-<div class="content">
+<div class="content" align="center">
     <%
         List<Car> cars = (List<Car>) request.getAttribute("cars");
         if (cars.isEmpty()) {%>
@@ -76,23 +76,23 @@
                 $
                 <%=car.getPrice()%>
             </td>
-            <%if ("".equals(car.getSaleDate())) {%>
             <td>
-                <a class="btn-link" href="/deals/new?car_id=<%=car.getId()%>"> sell </a>
-            </td>
+            <%if (!car.sold()) {%>
+                <a href="/deals/new?car_id=<%=car.getId()%>"> sell </a>
             <%} else {%>
-            <td>
                 <%=car.getSaleDate()%>
-            </td>
             <%}%>
+            </td>
         </tr>
-
         <%}%>
         </tbody>
     </table>
     <%}%>
-    <br> <a class="btn-success btn-lg" href="/cars/new"> Add car </a>
-    <a class="btn-info btn-lg" href="/cars/brands"> All brands </a>
+    <div align="center">
+        <br>
+        <a class="btn-success btn-lg" href="/cars/new" style="margin: 0 10px"> Add car </a>
+        <a class="btn-info btn-lg" href="/cars/brands"> All brands </a>
+    </div>
 </div>
 </body>
 </html>

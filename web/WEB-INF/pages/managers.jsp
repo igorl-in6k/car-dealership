@@ -31,7 +31,7 @@
         </div>
     </nav>
 </div>
-<div class="content">
+<div class="content" align="center">
     <%
         List<Manager> managers = (List<Manager>) request.getAttribute("managers");
         if (managers.isEmpty()) {%>
@@ -40,6 +40,9 @@
     else {
     %>
     <table class="tables table-bordered table-responsive table-hover" align="center" width="60%">
+        <caption>
+            All managers
+        </caption>
         <thead>
         <tr>
             <th> #</th>
@@ -67,7 +70,10 @@
         </tbody>
     </table>
     <%}%>
-    <br> <a class="btn-success btn-lg" href="/managers/new"> Add manager </a>
+    <br>
+    <div align="center">
+        <a class="btn-success btn-lg" href="/managers/new"> Add manager </a>
+    </div>
 </div>
 </body>
 </html>

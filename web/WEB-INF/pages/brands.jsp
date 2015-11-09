@@ -31,7 +31,7 @@
         </div>
     </nav>
 </div>
-<div class="content">
+<div class="content" align="center">
     <table class="tables table-bordered table-responsive table-hover" align="center" width="60%">
         <thead>
         <tr id="table-titles">
@@ -50,16 +50,16 @@
             <td>
                 <%=brand.getName()%>
             </td>
-            <td>
                 <form method="post" action="/cars/brands/<%=brand.getId()%>/remove">
-                    <input type="submit" name="remove_brand" value="remove">
-                </form>
+            <td>
+                    <input type="submit" name="remove_brand" value="remove" class="btn-danger">
             </td>
+                </form>
         </tr>
         <%}%>
         </tbody>
     </table>
-    <br> <a href="/cars/brands/new" class="common-link"> Add brand </a> <br>
+    <a class="btn-success btn-lg" role="button" href="/cars/brands/new"> Add brand </a>
 </div>
 </body>
 </html>

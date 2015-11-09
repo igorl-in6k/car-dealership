@@ -31,7 +31,7 @@
         </div>
     </nav>
 </div>
-<div class="content">
+<div class="content" align="center">
     <%
         List<Deal> deals = (List<Deal>) request.getAttribute("deals");
         if (deals.isEmpty()) {%>
@@ -40,6 +40,9 @@
     else {
     %>
     <table class="tables table-bordered table-responsive table-hover" align="center" width="60%">
+        <caption>
+            All Deals
+        </caption>
         <thead>
         <tr id="table-titles">
             <th> #</th>
@@ -59,7 +62,7 @@
             </td>
             <td>
                 <a href="/managers/<%=deal.getManager().getId()%>" id="common-link" style="font-size: 25px;">
-                    <%=deal.getManager().getName() + " (" + deal.getManager().getAge() + " y.o.)"%>
+                    <%=deal.getManager().getName()%>
                 </a>
             </td>
             <td>
@@ -73,7 +76,10 @@
         </tbody>
     </table>
     <%}%>
-    <br> <a class="btn-success btn-lg" href="/deals/new"> New deal </a> <br>
+    <br>
+    <div align="center">
+        <a class="btn-success btn-lg" href="/deals/new"> New deal </a> <br>
+    </div>
 </div>
 </body>
 </html>

@@ -31,7 +31,7 @@
         </div>
     </nav>
 </div>
-<div class="content">
+<div class="content" align="center">
     <h1>Edit Car</h1>
 
     <%Car car = (Car) request.getAttribute("car");%>

@@ -28,13 +28,7 @@
         </div>
     </nav>
 </div>
-<div class="content">
-    <%--<form method="post" action="/cars/brands/new">--%>
-        <%--<label for="name"> Brand name: </label>--%>
-        <%--<input type="text" name="name" id="name">--%>
-
-        <%--<input type="submit" name="add_brand" value="add">--%>
-    <%--</form>--%>
+<div class="content" align="center">
     <h1>New Brand</h1>
     <form class="form-inline" role="form" method="post" action="/cars/brands/new">
         <div class="form-group">
