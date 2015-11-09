@@ -35,7 +35,7 @@
         </div>
     </nav>
 </div>
-<div class="content" align="center">
+<div class="container">
     <h1>Deal</h1>
 
     <h2>

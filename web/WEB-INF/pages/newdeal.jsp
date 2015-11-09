@@ -32,7 +32,7 @@
     </nav>
 </div>
 
-<div class="content" align="center">
+<div class="container">
 
     <h2> Choose car and manager: </h2> <br>
 

@@ -37,7 +37,7 @@
         </div>
     </nav>
 </div>
-<div class="content" align="center">
+<div class="container">
     <h1>
         <%=manager.getName() + " (" + manager.getAge() + " y.o.)" %>
     </h1>
@@ -45,14 +45,13 @@
         List<Deal> deals = (List<Deal>) request.getAttribute("deals");
         if (!deals.isEmpty()) {
     %>
-    <table class="tables table-bordered table-responsive table-hover" align="center" width="60%">
+    <table class="tables table-bordered table-responsive table-hover" align="center">
         <caption>
             Manager Deals
         </caption>
         <thead>
         <tr>
             <th> #</th>
-            <th> ID</th>
             <th> MANAGER</th>
             <th> CAR</th>
             <th> PRICE</th>
@@ -64,9 +63,6 @@
         <tr>
             <td>
                 <%=i++%>
-            </td>
-            <td>
-                <%=deal.getId()%>
             </td>
             <td>
                 <a href="/managers/<%=deal.getManager().getId()%>">

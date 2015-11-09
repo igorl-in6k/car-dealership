@@ -32,7 +32,7 @@
         </div>
     </nav>
 </div>
-<div class="content" align="center">
+<div class="container">
     <%
         List<Car> cars = (List<Car>) request.getAttribute("cars");
         if (cars.isEmpty()) {%>
@@ -40,7 +40,7 @@
         <%}
         else {
     %>
-    <table class="tables table-bordered table-responsive table-hover" align="center" width="60%">
+    <table class="tables table-bordered table-responsive table-hover" align="center">
         <caption align="center">
             All Cars
         </caption>

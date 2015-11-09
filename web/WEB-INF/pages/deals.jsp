@@ -31,7 +31,7 @@
         </div>
     </nav>
 </div>
-<div class="content" align="center">
+<div class="container">
     <%
         List<Deal> deals = (List<Deal>) request.getAttribute("deals");
         if (deals.isEmpty()) {%>
@@ -61,7 +61,7 @@
                 </a>
             </td>
             <td>
-                <a href="/managers/<%=deal.getManager().getId()%>" id="common-link" style="font-size: 25px;">
+                <a href="/managers/<%=deal.getManager().getId()%>">
                     <%=deal.getManager().getName()%>
                 </a>
             </td>

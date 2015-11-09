@@ -30,7 +30,7 @@
         </div>
     </nav>
 </div>
-<div class="content" align="center">
+<div class="container">
     <h1>New Car</h1>
     <form class="form-inline" role="form" method="post" action="/cars">
         <div class="form-group">

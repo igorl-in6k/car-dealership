@@ -43,8 +43,18 @@ public class BrandController {
         return "redirect:/cars/brands";
     }
 
+    /*
     @RequestMapping(value = "/{brandId}/remove", method = RequestMethod.POST)
     public String removeBrand(@PathVariable int brandId, ModelMap model) {
+        Brand brand = brandService.getBrandById(brandId);
+        if ( carService.getCarsByBrand(brand).isEmpty() )
+            brandService.removeBrand(brand);
+        return "redirect:/cars/brands";
+    }
+    */
+
+    @RequestMapping(value = "/{brandId}", method = RequestMethod.DELETE)
+    public String removeCar(@PathVariable int brandId) {
         Brand brand = brandService.getBrandById(brandId);
         if ( carService.getCarsByBrand(brand).isEmpty() )
             brandService.removeBrand(brand);

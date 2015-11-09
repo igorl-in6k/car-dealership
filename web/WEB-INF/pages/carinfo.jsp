@@ -35,7 +35,7 @@
         </div>
     </nav>
 </div>
-<div class="content" align="center">
+<div class="container">
     <h1><%=car.getName()%>
     </h1>
     <br> <br>
@@ -43,7 +43,7 @@
     <div align="center">
         <form method="post" action="/cars/<%=car.getId()%>">
             <input type="hidden" name="_method" value="DELETE"/>
-            <button type="submit" name="remove_car" class="btn btn-danger">Remove</button>
+            <button type="submit" name="remove_car" class="btn btn-danger">Remove<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
             <a class="btn-info btn-lg" href="/cars/<%=car.getId()%>/edit" style="margin: 0 10px">
                 Edit
             </a>

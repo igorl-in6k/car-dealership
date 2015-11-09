@@ -29,7 +29,7 @@
     </div>
   </nav>
 </div>
-<div class="content" align="center">
+<div class="container">
   <%Manager manager = (Manager) request.getAttribute("manager");%>
   <h1>Edit manager</h1>
   <form class="form-inline" role="form" method="post" action="/managers/<%=manager.getId()%>">
