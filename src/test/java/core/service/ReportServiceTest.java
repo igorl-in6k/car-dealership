@@ -11,7 +11,6 @@ import static org.junit.Assert.*;
 
 public class ReportServiceTest {
 
-    /*
     ReportService rs;
     FakeDealDaoImpl dd;
 
@@ -22,23 +21,22 @@ public class ReportServiceTest {
     }
 
     @Test
-    public void testPreferredBrandByDealsAmount() {
-        assertThat(new Brand("BMW"),
+    public void testPreferredBrandByPriceAmount() {
+        assertThat(new Brand("Ferrari"),
                 is(rs.getManagerPreferredBrandByPriceAmount(
                         new Manager("Man1", 20))));
-        assertThat(new Brand("Ferrari"),
+        assertThat(new Brand("Lamborghini"),
                 is(rs.getManagerPreferredBrandByPriceAmount(
                         new Manager("Man2", 25))));
     }
 
     @Test
-    public void testPreferredBrandByPriceAmount() {
-        assertThat(new Brand("Ferrari"),
+    public void testPreferredBrandByDealsAmount() {
+        assertThat(new Brand("BMW"),
                 is(rs.getManagerPreferredBrandByDealsAmount(
                         new Manager("Man1", 20))));
-        assertThat(new Brand("Lamborghini"),
+        assertThat(new Brand("Ferrari"),
                 is(rs.getManagerPreferredBrandByDealsAmount(
                         new Manager("Man2", 25))));
     }
-    */
 }

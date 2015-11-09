@@ -27,7 +27,7 @@ public class FakeDealDaoImpl implements DealDao {
                 new Deal(man1,
                         new Car(new Brand("BMW"), "BMW2", 150000)),
                 new Deal(man1,
-                        new Car(new Brand("Mercedes"), "Mercede1", 500000)),
+                        new Car(new Brand("Mercedes"), "Mercedes1", 500000)),
 
 
                 new Deal(man2,
